@@ -1,4 +1,4 @@
-import image from "./album-cover.jpg";
+import image from "../album-cover.jpg";
 
 const Music = () => {
     return (

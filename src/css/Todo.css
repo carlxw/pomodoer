@@ -1,0 +1,4 @@
+/* Applies strikethrough when checked */
+.task_checkbox:checked + .task_label {
+    text-decoration: line-through;
+}
