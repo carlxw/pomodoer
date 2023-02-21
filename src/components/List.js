@@ -35,38 +35,42 @@ const List = ({ title }) => {
 
     return (
         <div className="task_list">
-                <h1 className="list_header">{ title }</h1>
-                
-                <div>
-                    {tasks.map((x) => (
-                        <div key={ x }>
-                            <input className="task_checkbox" type="checkbox" name={ x } value={ x } />
-                            <label className="task_label">{ x }</label>
-                            <br />
-                        </div>
-                    ))}
-                </div>
+            <h1 className="list_header">{ title }</h1>
+            
+            <div>
+                {tasks.map((x) => (
+                    <div key={ x }>
+                        <input 
+                            className="task_checkbox" 
+                            type="checkbox" name={ x } 
+                            value={ x } 
+                        />
+                        <label className="task_label">{ x }</label>
+                        <br />
+                    </div>
+                ))}
+            </div>
 
-                <br />
+            <br />
 
-                <form onSubmit={ handleSubmit }>
-                    <input className="task_checkbox" type="checkbox" />
-                    <input 
-                        id="task_input"
-                        type="text" 
-                        name="item" 
-                        placeholder="Type something here..."
-                        value={ item } 
-                        onChange={ (e) => setItem(e.target.value) } 
-                        autoComplete="off"
-                    />
-                    <button 
-                        id="task_add" 
-                        onClick={addTask}
-                        type="submit"
-                    >Add</button>
-                    <button onClick={clearArray}>Clear</button>
-                </form>
+            <form onSubmit={ handleSubmit }>
+                <input className="task_checkbox" type="checkbox" />
+                <input 
+                    id="task_input"
+                    type="text" 
+                    name="item" 
+                    placeholder="Type something here..."
+                    value={ item } 
+                    onChange={ (e) => setItem(e.target.value) } 
+                    autoComplete="off"
+                />
+                <button 
+                    id="task_add" 
+                    onClick={addTask}
+                    type="submit"
+                >Add</button>
+                <button onClick={clearArray}>Clear</button>
+            </form>
         </div>
     );
 }
