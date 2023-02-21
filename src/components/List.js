@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const List = ({ title }) => {
     const [tasks, updateTasks] = useState(["Task 1", "Task 2", "Task 3"]);
-    const [item, setItem] = useState("Enter a task");
+    const [item, setItem] = useState("");
 
     const addTask = () => {
         // Add new task to array
@@ -10,7 +10,7 @@ const List = ({ title }) => {
         updateTasks(tasks);
 
         // Reset input field text
-        setItem("Enter a task");
+        setItem("");
     }
 
     const clearArray = () => {
@@ -45,8 +45,10 @@ const List = ({ title }) => {
                         id="task_input"
                         type="text" 
                         name="item" 
+                        placeholder="Type something here..."
                         value={ item } 
                         onChange={ (e) => setItem(e.target.value) } 
+                        autoComplete="off"
                     />
                     <button 
                         id="task_add" 
