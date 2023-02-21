@@ -5,21 +5,31 @@ const List = ({ title }) => {
     const [item, setItem] = useState("");
 
     const addTask = () => {
-        // Add new task to array
-        tasks.push(item)
-        updateTasks(tasks);
+        // Check if there is a duplicate entry
+        const dup = tasks.find((x) => (
+            x === item
+        ));
 
-        // Reset input field text
+        // Truthy - There is a duplicate entry
+        if (dup) {
+            alert("Duplicate entry.");
+        } else {
+            // Add new task to array
+            tasks.push(item)
+            updateTasks(tasks);
+
+            // Reset input field text
+        }
         setItem("");
     }
 
+    // Clears the task array
     const clearArray = () => {
-        // Clears the array
         updateTasks([]);
     }
 
+    // Don't refresh the page on form submit
     const handleSubmit = (e) => {
-        // Don't refresh the page
         e.preventDefault();
     }
 
