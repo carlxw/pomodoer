@@ -1,4 +1,4 @@
-export const secToString = (input) => {
+const secToString = (input) => {
     const minVal = Math.floor(input/60);
     const secVal = input - minVal*60;
 
@@ -18,3 +18,5 @@ export const secToString = (input) => {
 
     return `${min}:${sec}`;
 }
+
+export {secToString};

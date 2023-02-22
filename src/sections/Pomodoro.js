@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Countdown from "../components/Countdown";
 import { secToString } from "../util/secToString";
-import { timerActive, timerOn, timerOff } from "../util/timerActive";
+import { timerActive, timerOn, timerOff } from "../util/TimerControl";
 
 const Pomodoro = () => {
     // The time itself that will decrement with every second, controlled by Timer
     const [time, setTime] = useState(0);
     
+    // Prevents starting timer on 00:00
     const handleTimerStart = () => {
         if (time > 0) {
             setTime(time - 1); 
@@ -15,6 +16,17 @@ const Pomodoro = () => {
             alert("Select a timer preset.");
         }
     }
+
+    // The timer is complete
+    useEffect(() => {
+        if (timerActive && time <= -1 ) {
+            timerOff();
+            setTime(0);
+            
+            alert("Timer");
+        }
+    }, [time]);
+
     return (
         <div className="pomodoro">
             <h2 className="session_counter">Study session no. 3</h2>
@@ -28,13 +40,14 @@ const Pomodoro = () => {
                 <p>short break</p>
 
                 <button onClick={ () => setTime(900) }>15:00</button>
+                <button onClick={ () => setTime(1) }>1</button>
                 <p>long break</p>
             </div>
 
             <div>
                 <button onClick={ handleTimerStart }>Start</button>
                 <button onClick={ timerOff }>Pause</button>
-                <button onClick={() => { timerOff(); setTime(0) } }>Clear</button>
+                <button onClick={ () => { timerOff(); setTime(0) } }>Clear</button>
             </div>
         </div>
     );

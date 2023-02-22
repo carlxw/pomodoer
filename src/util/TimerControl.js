@@ -8,4 +8,4 @@ const timerOff = () => {
     timerActive = false;
 }
 
-export {timerActive, timerOn, timerOff};
+export { timerActive, timerOn, timerOff };
