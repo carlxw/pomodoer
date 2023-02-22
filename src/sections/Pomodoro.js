@@ -30,7 +30,6 @@ const Pomodoro = () => {
                 <p>short break</p>
 
                 <button onClick={ () => setTime(900) }>15:00</button>
-                <button onClick={ () => setTime(1) }>1</button>
                 <p>long break</p>
             </div>
 
