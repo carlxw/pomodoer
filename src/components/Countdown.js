@@ -15,8 +15,12 @@ const Countdown = ({ time, setTime }) => {
 
     // Stop timer if countdown has been reached
     useEffect(() => {
-        if (time < 0) {
+        if (time <= 0) {
             clearTimeout(cd);
+            timerOff();
+            setTime(0);
+
+            // Alert user
         } 
     }, [time]);
 

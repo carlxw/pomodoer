@@ -17,16 +17,6 @@ const Pomodoro = () => {
         }
     }
 
-    // The timer is complete
-    useEffect(() => {
-        if (timerActive && time <= -1 ) {
-            timerOff();
-            setTime(0);
-            
-            alert("Timer");
-        }
-    }, [time]);
-
     return (
         <div className="pomodoro">
             <h2 className="session_counter">Study session no. 3</h2>
