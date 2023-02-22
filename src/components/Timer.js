@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { secToString } from "../modules/Utilities";
+import { secToString } from "../util/secToString";
+import { timerActive } from "../util/timerActive";
 
 /**
  * @param input The time in seconds
@@ -7,11 +8,9 @@ import { secToString } from "../modules/Utilities";
  */
 const Timer = ({ time, setTime }) => {
     // Decrements timer
-    useEffect(() => {
-        setTimeout(() => {
-            setTime(time - 1)
-        }, 1000)
-    }, [time]);
+    setTimeout(() => {
+        if (timerActive) setTime(time - 1)
+    }, 1000)
 
     return (
         <div className="countdown">

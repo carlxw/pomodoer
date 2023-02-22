@@ -1,18 +1,16 @@
 import { useState } from "react";
 import Timer from "../components/Timer";
-import { secToString } from "../modules/Utilities";
+import { secToString } from "../util/secToString";
+import { timerActive, timerOn, timerOff } from "../util/timerActive";
 
 const Pomodoro = () => {
-    // While true, the timer will continue to countdown
-    const [timerOn, setTimerOn] = useState(false);
-
     // The time itself that will decrement with every second, controlled by Timer
     const [time, setTime] = useState(0);
     
     return (
         <div className="pomodoro">
             <h2 className="session_counter">Study session no. 3</h2>
-            { timerOn ? <Timer time={ time } setTime={ setTime } /> : <h1>{ secToString(time) }</h1> }
+            { timerActive ? <Timer time={ time } setTime={ setTime } /> : <h1>{ secToString(time) }</h1> }
             
             <div className="timer_buttons_presets">
                 <button onClick={ () => setTime(1500) }>25:00</button>
@@ -26,9 +24,9 @@ const Pomodoro = () => {
             </div>
 
             <div>
-                <button onClick={ () => {setTime(time - 1); setTimerOn(true);}}>Start</button>
-                <button onClick={ () => {setTimerOn(false);} }>Pause</button>
-                <button>clear</button>
+                <button onClick={ () => {setTime(time - 1); timerOn() }}>Start</button>
+                <button onClick={ () => { timerOff() } }>Pause</button>
+                <button>Clear</button>
             </div>
         </div>
     );
