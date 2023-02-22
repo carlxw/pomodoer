@@ -1,28 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { secToString } from "../modules/Utilities";
 
-const Timer = ({ input }) => {
-
-    let [time, setTime] = useState(input);
-
+/**
+ * @param input The time in seconds
+ * @param func The function to update time
+ */
+const Timer = ({ time, setTime }) => {
     // Decrements timer
     useEffect(() => {
         setTimeout(() => {
-            setTime(--time)
+            setTime(time - 1)
         }, 1000)
     }, [time]);
-
-    
 
     return (
         <div className="countdown">
             <h1>{ secToString(time) }</h1>
         </div>
     );
-}
-
-const start = () => {
-    console.log("Hello");
 }
 
 export default Timer;
