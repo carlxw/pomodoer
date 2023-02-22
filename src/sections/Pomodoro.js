@@ -7,6 +7,14 @@ const Pomodoro = () => {
     // The time itself that will decrement with every second, controlled by Timer
     const [time, setTime] = useState(0);
     
+    const handleTimerStart = () => {
+        if (time > 0) {
+            setTime(time - 1); 
+            timerOn();
+        } else {
+            alert("Select a timer preset.");
+        }
+    }
     return (
         <div className="pomodoro">
             <h2 className="session_counter">Study session no. 3</h2>
@@ -24,9 +32,9 @@ const Pomodoro = () => {
             </div>
 
             <div>
-                <button onClick={ () => {setTime(time - 1); timerOn() }}>Start</button>
-                <button onClick={ () => { timerOff() } }>Pause</button>
-                <button>Clear</button>
+                <button onClick={ handleTimerStart }>Start</button>
+                <button onClick={ timerOff }>Pause</button>
+                <button onClick={() => { timerOff(); setTime(0) } }>Clear</button>
             </div>
         </div>
     );

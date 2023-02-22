@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { secToString } from "../util/secToString";
 import { timerActive } from "../util/timerActive";
 
