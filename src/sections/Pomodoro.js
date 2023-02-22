@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Timer from "../components/Timer";
+import Countdown from "../components/Countdown";
 import { secToString } from "../util/secToString";
 import { timerActive, timerOn, timerOff } from "../util/timerActive";
 
@@ -18,7 +18,7 @@ const Pomodoro = () => {
     return (
         <div className="pomodoro">
             <h2 className="session_counter">Study session no. 3</h2>
-            { timerActive ? <Timer time={ time } setTime={ setTime } /> : <h1>{ secToString(time) }</h1> }
+            { timerActive ? <Countdown time={ time } setTime={ setTime } /> : <h1>{ secToString(time) }</h1> }
             
             <div className="timer_buttons_presets">
                 <button onClick={ () => setTime(1500) }>25:00</button>

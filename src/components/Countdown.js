@@ -5,7 +5,7 @@ import { timerActive } from "../util/timerActive";
  * @param input The time in seconds
  * @param func The function to update time
  */
-const Timer = ({ time, setTime }) => {
+const Countdown = ({ time, setTime }) => {
     // Decrements timer
     setTimeout(() => {
         if (timerActive) setTime(time - 1)
@@ -18,4 +18,4 @@ const Timer = ({ time, setTime }) => {
     );
 }
 
-export default Timer;
+export default Countdown;
