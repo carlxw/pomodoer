@@ -1,9 +1,16 @@
-const Timer = () => {
-    return (
-        <div className="timer">
-            <h2 className="session_counter">Study session no. 3</h2>
-            <h1 className="countdown">25:00</h1>
+import { useState } from "react";
+import Timer from "../components/Timer";
+import { secToString } from "../modules/Utilities";
 
+const Pomodoro = () => {
+    const [timerOn, setTimerOn] = useState(false);
+    const time = 1200;
+
+    return (
+        <div className="pomodoro">
+            <h2 className="session_counter">Study session no. 3</h2>
+            { timerOn ? <Timer input={ time }/> : <h1>{ secToString(time) }</h1> }
+            
             <div className="timer_buttons">
                 <button>25:00</button>
                 <p>study session</p>
@@ -18,4 +25,4 @@ const Timer = () => {
     );
 }
 
-export default Timer;
+export default Pomodoro;
