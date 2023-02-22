@@ -1,32 +1,36 @@
 import { useEffect } from "react";
 import { secToString } from "../util/secToString";
 import { timerActive, timerOff } from "../util/TimerControl";
+import { studying, studyOff } from "../util/StudyControl";
 
 /**
  * @param input The time in seconds
  * @param func The function to update time
  */
-const Countdown = ({ time, setTime }) => {
+const Countdown = ({ timeObj, studyObj }) => {
     // Decrements timer
     const cd = setTimeout(() => {
-        if (timerActive) setTime(time - 1);
-        
+        if (timerActive) timeObj.setTime(timeObj.time - 1);
     }, 1000)
 
     // Stop timer if countdown has been reached
     useEffect(() => {
-        if (time <= 0) {
+        if (timeObj.time <= 0) {
             clearTimeout(cd);
             timerOff();
-            setTime(0);
+            timeObj.setTime(0);
 
-            // Alert user
+            // Study sesion complete; increment counter
+            if (studying) {
+                studyOff();
+                studyObj.setStudyNo(studyObj.studyNo + 1);
+            }
         } 
-    }, [time]);
+    }, [timeObj.time]);
 
     return (
         <div className="countdown">
-            <h1>{ secToString(time) }</h1>
+            <h1>{ secToString(timeObj.time) }</h1>
         </div>
     );
 }
