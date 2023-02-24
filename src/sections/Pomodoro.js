@@ -3,7 +3,6 @@ import Countdown from "../components/Countdown";
 import { secToString } from "../util/secToString";
 import { timerActive, timerOn, timerOff } from "../util/TimerControl";
 import { studyOn } from "../util/StudyControl";
-import { sleep } from "../util/sleep";
 
 const Pomodoro = () => {
     // The time itself that will decrement with every second, controlled by Timer

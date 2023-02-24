@@ -1,14 +1,13 @@
 import { useState } from "react";
+import { arrRemove } from "../util/removeArr";
 
 const List = ({ title }) => {
-    const [tasks, updateTasks] = useState(["Task 1", "Task 2", "Task 3"]);
+    let [tasks, updateTasks] = useState(["Task 1", "Task 2", "Task 3"]);
     const [item, setItem] = useState("");
 
     const addTask = () => {
         // Check if there is a duplicate entry
-        const dup = tasks.find((x) => (
-            x === item
-        ));
+        const dup = tasks.find((x) => (x === item));
 
         // Truthy - There is a duplicate entry
         if (dup) {
@@ -17,9 +16,8 @@ const List = ({ title }) => {
             // Add new task to array
             tasks.push(item)
             updateTasks(tasks);
-
-            // Reset input field text
         }
+        // Reset input field text
         setItem("");
     }
 
@@ -33,6 +31,13 @@ const List = ({ title }) => {
         e.preventDefault();
     }
 
+    // Move the item to a bottom of the list
+    const handleCheck = (e) => {
+        tasks.push(`[DONE]: ${e.target.value}`);
+        tasks = arrRemove(tasks, e.target.value);
+        updateTasks([...tasks]);
+    }
+
     return (
         <div className="task_list">
             <h1 className="list_header">{ title }</h1>
@@ -42,8 +47,11 @@ const List = ({ title }) => {
                     <div key={ x }>
                         <input 
                             className="task_checkbox" 
-                            type="checkbox" name={ x } 
+                            defaultChecked={ x.includes("[DONE]") ? true : false }
+                            type="checkbox" 
+                            name={ x } 
                             value={ x } 
+                            onChange={ handleCheck }
                         />
                         <label className="task_label">{ x }</label>
                         <br />
