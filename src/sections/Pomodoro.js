@@ -1,8 +1,9 @@
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 import Countdown from "../components/Countdown";
 import { secToString } from "../util/secToString";
 import { timerActive, timerOn, timerOff } from "../util/TimerControl";
 import { studyOn } from "../util/StudyControl";
+import { sleep } from "../util/sleep";
 
 const Pomodoro = () => {
     // The time itself that will decrement with every second, controlled by Timer
@@ -21,14 +22,23 @@ const Pomodoro = () => {
     // Counts the number of study sessions that occured
     const [studyNo, setStudyNo] = useState(1);
 
+    // Alert the user that the timer is up 
+    useEffect(() => {
+        if (time <= 0 && timerActive) {
+            timerOff();
+            setTimeout(() => {
+                alert("Timer");
+            }, 1000);
+        }
+    }, [time]);
+
     return (
         <div className="pomodoro">
             <h2 className="session_counter">{ `Study sesion no. ${studyNo}` }</h2>
             { timerActive ? <Countdown timeObj={ {time, setTime} } studyObj={ {studyNo, setStudyNo} } /> : <h1>{ secToString(time) }</h1> }
             
             <div className="timer_buttons_presets">
-                <button onClick={ () => setTime(1500) }>25:00</button>
-                <button onClick={ () => {setTime(1); studyOn()} }>25:00</button>
+                <button onClick={ () => {setTime(1500); studyOn()} }>25:00</button>
                 <p>study session</p>
 
                 <button onClick={ () => setTime(300) }>5:00</button>

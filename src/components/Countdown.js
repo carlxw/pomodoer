@@ -17,7 +17,6 @@ const Countdown = ({ timeObj, studyObj }) => {
     useEffect(() => {
         if (timeObj.time <= 0) {
             clearTimeout(cd);
-            timerOff();
             timeObj.setTime(0);
 
             // Study sesion complete; increment counter
