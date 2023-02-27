@@ -5,6 +5,8 @@ import { timerActive, timerOn, timerOff } from "../util/TimerControl";
 import { studyOn } from "../util/StudyControl";
 
 const Pomodoro = () => {
+    const enableFS = false;
+
     // The time itself that will decrement with every second, controlled by Timer
     const [time, setTime] = useState(0);
     
@@ -13,6 +15,7 @@ const Pomodoro = () => {
         if (time > 0) {
             setTime(time - 1); 
             timerOn();
+            if (enableFS) document.body.requestFullscreen();
         } else {
             alert("Select a timer preset.");
         }
@@ -25,6 +28,7 @@ const Pomodoro = () => {
     useEffect(() => {
         if (time <= 0 && timerActive) {
             timerOff();
+            if (enableFS) document.exitFullscreen();
             setTimeout(() => {
                 alert("Timer");
             }, 1000);
@@ -38,6 +42,7 @@ const Pomodoro = () => {
             
             <div className="timer_buttons_presets">
                 <button onClick={ () => {setTime(1500); studyOn()} }>25:00</button>
+                <button onClick={ () => {setTime(10); studyOn()} }>25:00</button>
                 <p>study session</p>
 
                 <button onClick={ () => setTime(300) }>5:00</button>
