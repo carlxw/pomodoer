@@ -33,7 +33,7 @@ const Pomodoro = () => {
                 alert("Timer");
             }, 1000);
         }
-    }, [time]);
+    }, [time, enableFS]);
 
     return (
         <div className="pomodoro">

@@ -1,8 +1,12 @@
 import { useState } from "react";
-import { arrRemove } from "../util/removeArr";
+import { arrRemove } from "../util/ArrayUtil";
+import Task from "../util/Task";
+
+// Complete to incomplete
+// Insert new tasks above complete
 
 const List = ({ title }) => {
-    let [tasks, updateTasks] = useState(["Task 1", "Task 2", "Task 3"]);
+    let [tasks, updateTasks] = useState([new Task("Task 1", false), new Task("Task 2", false), new Task("Task 3", false)]);
     const [item, setItem] = useState("");
 
     const addTask = () => {
@@ -14,7 +18,7 @@ const List = ({ title }) => {
             alert("Duplicate entry.");
         } else {
             // Add new task to array
-            tasks.push(item)
+            tasks.push(new Task(item, false, false));
             updateTasks(tasks);
         }
         // Reset input field text
@@ -31,11 +35,35 @@ const List = ({ title }) => {
         e.preventDefault();
     }
 
-    // Move the item to a bottom of the list
+    // When user presses checkmark
     const handleCheck = (e) => {
-        tasks.push(`[DONE]: ${e.target.value}`);
-        tasks = arrRemove(tasks, e.target.value);
-        updateTasks([...tasks]);
+        // Incomplete to complete
+        if (e.target.checked) {
+            // Complete tasks will be found at the bottom of the array
+            tasks.push(new Task(e.target.value, false, true));
+
+            tasks = arrRemove(tasks, e.target.value);
+            updateTasks([...tasks]);
+        }
+
+        // Complete to incomplete
+        else {
+            console.log(1)
+            // Remove the task from its position in the array
+            tasks = arrRemove(tasks, e.target.value);
+
+            // Obtain index of where to insert (before the completed list)
+            let index;
+            for (let i = 0; i < tasks.length; i++) {
+                if (tasks[i + 1].isDone) {
+                    index = i;
+                    break;
+                }
+            }
+            
+            tasks.splice(index, 0, new Task(e.target.value, false, false));
+            updateTasks([...tasks]);
+        }
     }
 
     return (
@@ -44,16 +72,17 @@ const List = ({ title }) => {
             
             <div>
                 {tasks.map((x) => (
-                    <div key={ x }>
+                    <div key={ x.taskName }>
                         <input 
                             className="task_checkbox" 
-                            defaultChecked={ x.includes("[DONE]") ? true : false }
+                            defaultChecked={ x.taskName.includes("[DONE]") ? true : false }
                             type="checkbox" 
-                            name={ x } 
-                            value={ x } 
+                            name={ x.taskName } 
+                            value={ x.taskName } 
                             onChange={ handleCheck }
+                            style={ x.isST ? {marginLeft: "50px"} : null }
                         />
-                        <label className="task_label">{ x }</label>
+                        <label className="task_label">{ `${x.isDone ? "DONE: " : ""} ${x.taskName}` }</label>
                         <br />
                     </div>
                 ))}
