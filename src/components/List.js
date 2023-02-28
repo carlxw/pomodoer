@@ -4,6 +4,7 @@ import Task from "../util/Task";
 
 const List = ({ title }) => {
     let [tasks, updateTasks] = useState([new Task("Task 1", false, false), new Task("Task 2", false, false), new Task("Task 3", false, false), new Task("Task 4", false, false), new Task("Task 5", false, false)]);
+    let [tasksDone, updateTasksDone] = useState([]);
     const [item, setItem] = useState("");
 
     const addTask = () => {
@@ -22,9 +23,15 @@ const List = ({ title }) => {
         setItem("");
     }
 
-    // Clears the task array
-    const clearArray = () => {
+    // Clears everything
+    const clearAll = () => {
         updateTasks([]);
+        updateTasksDone([]);
+    }
+
+    // Remove only the tasks that are completed
+    const clearDone = () => {
+        updateTasksDone([]);
     }
     
     // Don't refresh the page on form submit
@@ -36,30 +43,26 @@ const List = ({ title }) => {
     const handleCheck = (e) => {
         // Incomplete to complete
         if (e.target.checked) {
-            // Complete tasks will be found at the bottom of the array
-            tasks.push(new Task(e.target.value, false, true));
+            // Put task to completed array
+            tasksDone.push(new Task(e.target.value, false, true));
 
+            // Remove tasks from todo array
             tasks = arrRemove(tasks, e.target.value);
+
+            updateTasksDone([...tasksDone]);
             updateTasks([...tasks]);
-            console.log(tasks);
         }
 
         // Complete to incomplete
         else {
-            // Obtain index of where to insert (before the completed list)
-            let index;
-            for (let i = 0; i < tasks.length - 1; i++) {
-                if (tasks[i].isDone === true) {
-                    index = i;
-                    break;
-                }
-            }
+            // Put task to todo array
+            tasks.push(new Task(e.target.value, false, true));
 
             // Remove the task from its position in the array
-            tasks = arrRemove(tasks, e.target.value);
+            tasksDone = arrRemove(tasksDone, e.target.value);
 
-            tasks.splice(index, 0, new Task(e.target.value, false, false));
             updateTasks([...tasks]);
+            updateTasksDone([...tasksDone]);
         }
     }
 
@@ -72,14 +75,29 @@ const List = ({ title }) => {
                     <div key={ x.taskName }>
                         <input 
                             className="task_checkbox" 
-                            defaultChecked={ x.taskName.includes("[DONE]") ? true : false }
+                            defaultChecked={ false }
                             type="checkbox" 
                             name={ x.taskName } 
                             value={ x.taskName } 
                             onChange={ handleCheck }
                             style={ x.isST ? {marginLeft: "50px"} : null }
                         />
-                        <label className="task_label">{ `${x.isDone ? "DONE: " : ""} ${x.taskName}` }</label>
+                        <label className="task_label">{ x.taskName }</label>
+                        <br />
+                    </div>
+                ))}
+                {tasksDone.map((x) => (
+                    <div key={ x.taskName }>
+                        <input 
+                            className="task_checkbox" 
+                            defaultChecked={ true }
+                            type="checkbox" 
+                            name={ x.taskName } 
+                            value={ x.taskName } 
+                            onChange={ handleCheck }
+                            style={ x.isST ? {marginLeft: "50px"} : null }
+                        />
+                        <label className="task_label">{ x.taskName }</label>
                         <br />
                     </div>
                 ))}
@@ -103,7 +121,8 @@ const List = ({ title }) => {
                     onClick={addTask}
                     type="submit"
                 >Add</button>
-                <button onClick={clearArray}>Clear</button>
+                <button onClick={clearAll}>Clear All</button>
+                <button onClick={clearDone}>Clear Done</button>
             </form>
         </div>
     );
