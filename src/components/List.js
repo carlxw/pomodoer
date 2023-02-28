@@ -6,7 +6,7 @@ import Task from "../util/Task";
 // Insert new tasks above complete
 
 const List = ({ title }) => {
-    let [tasks, updateTasks] = useState([new Task("Task 1", false), new Task("Task 2", false), new Task("Task 3", false)]);
+    let [tasks, updateTasks] = useState([new Task("Task 1", false, false), new Task("Task 2", false, false), new Task("Task 3", false, false), new Task("Task 4", false, false), new Task("Task 5", false, false)]);
     const [item, setItem] = useState("");
 
     const addTask = () => {
@@ -44,23 +44,23 @@ const List = ({ title }) => {
 
             tasks = arrRemove(tasks, e.target.value);
             updateTasks([...tasks]);
+            console.log(tasks);
         }
 
         // Complete to incomplete
         else {
-            console.log(1)
-            // Remove the task from its position in the array
-            tasks = arrRemove(tasks, e.target.value);
-
             // Obtain index of where to insert (before the completed list)
             let index;
-            for (let i = 0; i < tasks.length; i++) {
-                if (tasks[i + 1].isDone) {
+            for (let i = 0; i < tasks.length - 1; i++) {
+                if (tasks[i].isDone === true) {
                     index = i;
                     break;
                 }
             }
-            
+
+            // Remove the task from its position in the array
+            tasks = arrRemove(tasks, e.target.value);
+
             tasks.splice(index, 0, new Task(e.target.value, false, false));
             updateTasks([...tasks]);
         }
