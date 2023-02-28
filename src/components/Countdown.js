@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { secToString } from "../util/secToString";
-import { timerActive, timerOff } from "../util/TimerControl";
+import { timerActive } from "../util/TimerControl";
 import { studying, studyOff } from "../util/StudyControl";
 
 /**

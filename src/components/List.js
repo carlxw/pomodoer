@@ -2,9 +2,6 @@ import { useState } from "react";
 import { arrRemove } from "../util/ArrayUtil";
 import Task from "../util/Task";
 
-// Complete to incomplete
-// Insert new tasks above complete
-
 const List = ({ title }) => {
     let [tasks, updateTasks] = useState([new Task("Task 1", false, false), new Task("Task 2", false, false), new Task("Task 3", false, false), new Task("Task 4", false, false), new Task("Task 5", false, false)]);
     const [item, setItem] = useState("");
@@ -29,7 +26,7 @@ const List = ({ title }) => {
     const clearArray = () => {
         updateTasks([]);
     }
-
+    
     // Don't refresh the page on form submit
     const handleSubmit = (e) => {
         e.preventDefault();
