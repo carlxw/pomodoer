@@ -25,7 +25,7 @@ const Countdown = ({ timeObj, studyObj }) => {
                 studyObj.setStudyNo(studyObj.studyNo + 1);
             }
         } 
-    }, [timeObj.time]);
+    }, [timeObj, cd, studyObj]);
 
     return (
         <div className="countdown">
