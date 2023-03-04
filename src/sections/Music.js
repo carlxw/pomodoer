@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import MusicPlayer from "../components/MusicPlayer";
 import image from "../album-cover.jpg";
 
@@ -7,18 +6,29 @@ const Music = () => {
     const [url, setUrl] = useState("");
 
     const handleSubmit = (e) => {
-        const config = {
-            url: "http://localhost:8000/upload",
-            content: JSON.stringify({ link: url }),
-            param: {headers: {"Content-Type": "application/json"}}
-        }
-        axios.post(config.url, config.content, config.param)
-        .then((res) => {
-            console.log(res)
+        // Send link to backend
+        fetch("http://localhost:8000/upload", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ link: url })
         })
-        .catch((err) => {
-            console.log(err);
-        })
+
+        // Receive data from backend
+        fetch("http://localhost:8000/", {
+            method: "GET",
+            headers: { "Accept": "application/json" }
+        }).then(
+            res => { 
+                return res.json();
+            }
+        ).then(
+            data => {
+                // Data contains the string from server
+                console.log(data.msg);
+            }
+        )
         
         e.preventDefault(); // To remove
     }

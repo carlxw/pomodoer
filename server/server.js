@@ -7,7 +7,7 @@ const p = require("body-parser");
 app.use(p.json())
 
 app.get("/", (req, res) => {
-    res.send("HI")
+    res.json({ msg: "String from server" });
 });
 
 app.post("/upload", (req, res) => {
