@@ -2,15 +2,13 @@
 // https://developer.spotify.com/console/get-playlist-tracks/?playlist_id=&market=&fields=&limit=&offset=&additional_types=
 
 // playlist-read-private scope
-const token = "BQBZbLk9u4rfLMmzPA1a5nTIgd18QRoaAnXO2L1VzADyFFcSmHoRaDmM_GcjRMtjwMZhxYLPiSKJ4N21BMQ1nT65PLtXYdw7nuvaHMUte55BNKiKQ5Ma7SbyLHywCalUngPTsxJWiFD9yVSkTN3Rt7bf_Ekp8UhlvAUTf4I0H7pEc3aul8HmtYH5BEnVHg0";
-
-const processLink = (str) => {
-    str = str.replace("https://open.spotify.com/playlist/", "");
-    return str.substring(0, str.indexOf("?"));
-}
+const token = "";
 
 const getSpotifyPlaylist = async (link) => {
-    const data = await fetch(`https://api.spotify.com/v1/playlists/${link}/tracks`, {
+    let playlist_id = link.replace("https://open.spotify.com/playlist/", "");
+    playlist_id = playlist_id.substring(0, playlist_id.indexOf("?"));
+
+    const data = await fetch(`https://api.spotify.com/v1/playlists/${playlist_id}/tracks`, {
         method: "GET",
         headers: {
             "Accept": "application/json",
@@ -21,23 +19,25 @@ const getSpotifyPlaylist = async (link) => {
         data => {
             return data;
         }
-    ).catch(err => console.err(err));
+    ).catch(err => console.log(err));
 
-    const playlist = [];
+    const queue = [];
     for (let i = 0; i < data.items.length; i++) {
-        playlist.push({
+        queue.push({
             "name": data.items[i].track.name,
-            "artist": data.items[i].track.album.artists[0].name,
+            "artist": data.items[i].track.album.artists.map(x => x.name),
             "cover": data.items[i].track.album.images[0].url
         })
     }
 
-    return playlist;
+    return queue;
 }
 
-// Returns the number of times needed to run fetch
-const getSpotifyPlaylistLength = (link) => {
-    const playlist = fetch(`https://api.spotify.com/v1/playlists/${link}/tracks`, {
+const getSpotifyAlbum = async (link) => {
+    let album_id = link.replace("https://open.spotify.com/album/", "");
+    album_id = album_id.substring(0, album_id.indexOf("?"));
+
+    const data = await fetch(`https://api.spotify.com/v1/albums/${album_id}`, {
         method: "GET",
         headers: {
             "Accept": "application/json",
@@ -48,15 +48,22 @@ const getSpotifyPlaylistLength = (link) => {
         data => {
             return data;
         }
-    ).catch(err => console.err(err));
+    ).catch(err => console.log(err));
 
-    return Math.floor(playlist.total/100) + 1;
+    const queue = [];
+    for (let i = 0; i < data.tracks.items.length; i++) {
+        queue.push({
+            "name": data.tracks.items[i].name,
+            "artist": data.tracks.items[i].artists.map(x => x.name),
+            "cover": data.images[0].url
+        })
+    }
+
+    return queue;
 }
 
 async function main() {
-    const link = processLink("https://open.spotify.com/playlist/4ERjA5BDMJ1cGt3URjbW6i?si=0c55f05f3f934d73&pt=d45541bf4495898d71e9f772524f389f");
-
-    const playlist = await getSpotifyPlaylist(link);
+    const playlist = await getSpotifyPlaylist("https://open.spotify.com/playlist/1iryxAiy6ImObnh4wS70JD?si=8835f0947e85488f&pt=1f70266072c5d662c4d8254017e3f9ab");
 
     playlist.forEach((x) => {
         console.log(x);
