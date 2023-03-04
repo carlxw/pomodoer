@@ -2,7 +2,7 @@
 // https://developer.spotify.com/console/get-playlist-tracks/?playlist_id=&market=&fields=&limit=&offset=&additional_types=
 
 // playlist-read-private scope
-const token = "BQCGH4MRipxgKdO19lO3mUVhgZZYab-z0dcahskVmxbqRVGDPD6a8mP5hQHhWHqZCxnzNlaE2IxWigy0ke6L8kGqhte-Bi90TlovpljgfUmZjwfLs0bcLdo2372XukwgRvhwzAnI0WFIX7U2uNXniwlVz2g0XB-ik2U-mPSeQaASrCCuShqqtam8PS3CbNg";
+const token = "BQB4Z6s0ep1Pij8qTXlNkSd96tUdlqct418RKxEwuKdBMN07uYgH7_CmLLIw3pRyRzNfbpIzt9s3Mjgj9G_uuMOU3noJhNqqbmu2PyulSQl6UyNuEp2uuWBHPSRl1yRQs5GXwiwkmoS0cIiqQEcCVvim-OspZlGbQfEyW6G0xD-ohprdcJTcvFyks3mDzEY";
 
 const processLink = (str) => {
     str = str.replace("https://open.spotify.com/playlist/", "");
@@ -17,15 +17,13 @@ const data = fetch(`https://api.spotify.com/v1/playlists/${link}/tracks`, {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`,
     }
-}).then(res => {
-    console.log(res.json().then(
-        data => {
-            for (let i = 0; i < data.items.length; i++) {
-                console.log(data.items[i].track.name); // Song name
-                console.log(data.items[i].track.album.artists[0].name); // Artist name
-                console.log(data.items[i].track.album.images[0].url); // Largest album cover
-                console.log();
-            }
+}).then(res => res.json()).then(
+    data => {
+        for (let i = 0; i < data.items.length; i++) {
+            console.log(data.items[i].track.name); // Song name
+            console.log(data.items[i].track.album.artists[0].name); // Artist name
+            console.log(data.items[i].track.album.images[0].url); // Largest album cover
+            console.log();
         }
-    ))
-});
+    }
+);
