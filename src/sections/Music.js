@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MusicPlayer from "../components/MusicPlayer";
+import SpotifyLogin from "../components/SpotifyLogin";
 import image from "../album-cover.jpg";
 
 const Music = () => {
     const [url, setUrl] = useState("");
+    const [token, setToken] = useState("");
+
+    useEffect(() => {
+        async function getToken() {
+            const res = await fetch("/auth/token");
+            const json = await res.json();
+            setToken(json.access_token);
+        }
+        getToken();
+    }, [])
 
     const handleSubmit = (e) => {
         // Send link to backend
@@ -53,7 +64,7 @@ const Music = () => {
                 <button>SoundCloud</button>
             </div>
 
-            <MusicPlayer image={ image } track_name="NIGHT RIDER" artist_name="Joji" />
+            { token !== "" ? <MusicPlayer image={ image } track_name="NIGHT RIDER" artist_name="Joji" /> : <SpotifyLogin token={ token }/> }
         </div>
     );
 }
