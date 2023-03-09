@@ -25,15 +25,15 @@ const Pomodoro = () => {
     const [studyNo, setStudyNo] = useState(1);
 
     // Alert the user that the timer is up 
-    useEffect(() => {
-        if (time <= 0 && timerActive) {
-            timerOff();
-            if (enableFS) document.exitFullscreen();
-            setTimeout(() => {
-                alert("Timer");
-            }, 1000);
-        }
-    }, [time, enableFS]);
+    // useEffect(() => {
+    //     if (time <= 0 && timerActive) {
+    //         timerOff();
+    //         if (enableFS) document.exitFullscreen();
+    //         setTimeout(() => {
+    //             alert("Timer");
+    //         }, 1000);
+    //     }
+    // }, [time, enableFS]);
 
     return (
         <div className="pomodoro">

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import MusicPlayer from "../components/MusicPlayer";
 import SpotifyLogin from "../components/SpotifyLogin";
 import SpotifyMusicPlayer from "../components/SpotifyMusicPlayer";
 
