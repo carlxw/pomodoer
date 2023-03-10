@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import WebPlayback from '../WebPlayback'
-import Login from '../Login'
+import Login from '../components/Login'
+import ErrorBoundary from '../util/SpotifyDisconnectCatcher';
 
 function App() {
   	const [token, setToken] = useState('');
@@ -16,7 +17,7 @@ function App() {
 
   return (
 	<>
-		{(token === '') ? <Login /> : <WebPlayback token={token} />}
+		{ (token === '') ? <Login /> : <ErrorBoundary><WebPlayback token={ token } setToken={ setToken } /></ErrorBoundary> }
 	</>
   );
 }
