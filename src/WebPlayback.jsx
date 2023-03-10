@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const track = {
     name: "",
@@ -12,7 +12,7 @@ const track = {
     ]
 }
 
-const SpotifyMusicPlayer = ({ token }) => {
+function WebPlayback({ token }) {
     const [is_paused, setPaused] = useState(false);
     const [is_active, setActive] = useState(false);
     const [player, setPlayer] = useState(undefined);
@@ -25,24 +25,24 @@ const SpotifyMusicPlayer = ({ token }) => {
 
         document.body.appendChild(script);
 
-        window.onSpotifyWebPlaybackSDKReady = async () => {
+        window.onSpotifyWebPlaybackSDKReady = () => {
             const player = new window.Spotify.Player({
-                name: 'Pomodoro Timer',
-                getOAuthToken: cb => { cb(token); },
+                name: "CHANGE NAME",
+                getOAuthToken: callback => { callback(token); },
                 volume: 0.5
             });
 
             setPlayer(player);
 
-            player.addListener('ready', async ({ device_id }) => {
-                console.log('Ready with Device ID', device_id);
+            player.addListener("ready", ({ device_id }) => {
+                console.log("Ready with Device ID", device_id);
             });
 
-            player.addListener('not_ready', ({ device_id }) => {
-                console.log('Device ID has gone offline', device_id);
+            player.addListener("not_ready", ({ device_id }) => {
+                console.log("Device ID has gone offline", device_id);
             });
 
-            player.addListener('player_state_changed', ( state => {
+            player.addListener("player_state_changed", ( state => {
                 if (!state) {
                     return;
                 }
@@ -50,16 +50,14 @@ const SpotifyMusicPlayer = ({ token }) => {
                 setTrack(state.track_window.current_track);
                 setPaused(state.paused);
 
-                player.getCurrentState().then(state => { 
-                    console.log(state);
-                    (!state) ? setActive(false) : setActive(true) 
+                player.getCurrentState().then( state => { 
+                    (!state)? setActive(false) : setActive(true) 
                 });
-
             }));
 
             player.connect();
         };
-    }, [token]);
+    }, []);
 
     if (!is_active) { 
         return (
@@ -69,8 +67,7 @@ const SpotifyMusicPlayer = ({ token }) => {
                         <b> Instance not active. Transfer your playback using your Spotify app </b>
                     </div>
                 </div>
-            </>
-        );
+            </>)
     } else {
         return (
             <>
@@ -86,12 +83,12 @@ const SpotifyMusicPlayer = ({ token }) => {
                                 &lt;&lt;
                             </button>
 
-                            <button className="btn-spotify" onClick={() => { console.log(player); console.log(Object.keys(player));  player.isLoaded.then(console.log); debugger }} >
+                            <button className="btn-spotify" onClick={() => { player.togglePlay() }} >
                                 { is_paused ? "PLAY" : "PAUSE" }
                             </button>
 
                             <button className="btn-spotify" onClick={() => { player.nextTrack() }} >
-                                &gt;&gt; asdf
+                                &gt;&gt;
                             </button>
                         </div>
                     </div>
@@ -101,4 +98,4 @@ const SpotifyMusicPlayer = ({ token }) => {
     }
 }
 
-export default SpotifyMusicPlayer;
+export default WebPlayback
