@@ -13,12 +13,14 @@ const track = {
 }
 
 function WebPlayback(props) {
+
     const [is_paused, setPaused] = useState(false);
     const [is_active, setActive] = useState(false);
     const [player, setPlayer] = useState(undefined);
     const [current_track, setTrack] = useState(track);
 
     useEffect(() => {
+
         const script = document.createElement("script");
         script.src = "https://sdk.scdn.co/spotify-player.js";
         script.async = true;
@@ -26,6 +28,7 @@ function WebPlayback(props) {
         document.body.appendChild(script);
 
         window.onSpotifyWebPlaybackSDKReady = () => {
+
             const player = new window.Spotify.Player({
                 name: 'Web Playback SDK',
                 getOAuthToken: cb => { cb(props.token); },
@@ -43,6 +46,7 @@ function WebPlayback(props) {
             });
 
             player.addListener('player_state_changed', ( state => {
+
                 if (!state) {
                     return;
                 }
@@ -50,13 +54,14 @@ function WebPlayback(props) {
                 setTrack(state.track_window.current_track);
                 setPaused(state.paused);
 
-                player.getCurrentState().then(state => { 
-                    (!state) ? setActive(false) : setActive(true) 
+                player.getCurrentState().then( state => { 
+                    (!state)? setActive(false) : setActive(true) 
                 });
 
             }));
 
             player.connect();
+
         };
     }, []);
 

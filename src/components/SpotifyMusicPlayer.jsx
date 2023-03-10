@@ -25,7 +25,7 @@ const SpotifyMusicPlayer = ({ token }) => {
 
         document.body.appendChild(script);
 
-        window.onSpotifyWebPlaybackSDKReady = () => {
+        window.onSpotifyWebPlaybackSDKReady = async () => {
             const player = new window.Spotify.Player({
                 name: 'Pomodoro Timer',
                 getOAuthToken: cb => { cb(token); },
@@ -34,7 +34,7 @@ const SpotifyMusicPlayer = ({ token }) => {
 
             setPlayer(player);
 
-            player.addListener('ready', ({ device_id }) => {
+            player.addListener('ready', async ({ device_id }) => {
                 console.log('Ready with Device ID', device_id);
             });
 
@@ -86,7 +86,7 @@ const SpotifyMusicPlayer = ({ token }) => {
                                 &lt;&lt;
                             </button>
 
-                            <button className="btn-spotify" onClick={() => { console.log(player) }} >
+                            <button className="btn-spotify" onClick={() => { console.log(player); console.log(Object.keys(player));  player.isLoaded.then(console.log); debugger }} >
                                 { is_paused ? "PLAY" : "PAUSE" }
                             </button>
 
