@@ -20,8 +20,7 @@ class SpotifyDisconnectCatcher extends React.Component {
 
     render() {
         if (this.state.hasError) {
-            // Refreshes the page
-            window.location.reload(false);
+            return <p>Spotify player disconnected</p>
         }
 
         return this.props.children;

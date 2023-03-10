@@ -17,7 +17,7 @@ function App() {
 
   return (
 	<>
-		{ (token === '') ? <Login /> : <ErrorBoundary><WebPlayback token={ token } setToken={ setToken } /></ErrorBoundary> }
+		{ (token === '') ? <Login /> : <WebPlayback token={ token } setToken={ setToken } /> }
 	</>
   );
 }
