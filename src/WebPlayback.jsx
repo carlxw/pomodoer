@@ -45,20 +45,18 @@ const WebPlayback = ({ token, setToken }) => {
                 console.log("Device ID has gone offline", device_id);
             });
 
-            player.addListener("player_state_changed", ( state => {
-                console.log(state);
-                if (!state) {
-                    console.log("Trashed")
-                    player.disconnect();
-                    setToken("")
+            player.addListener("player_state_changed", (state => {
+                if (state.duration === 0) {
+                    return;
                 }
+                else {
+                    setTrack(state.track_window.current_track);
+                    setPaused(state.paused);
 
-                setTrack(state.track_window.current_track);
-                setPaused(state.paused);
-
-                player.getCurrentState().then( state => { 
-                    (!state) ? setActive(false) : setActive(true) 
-                });
+                    player.getCurrentState().then(state => { 
+                        (state.duration === 0) ? setActive(false) : setActive(true) 
+                    });
+                }
             }));
 
             player.connect();
@@ -72,6 +70,12 @@ const WebPlayback = ({ token, setToken }) => {
     const handleVolumeChange = (e) => {
         player.setVolume(e.target.value/100)
         setVolume(e.target.value);
+    }
+
+    const handleDisconnect = () => {
+        if (player) player.disconnect(); 
+        setTimeout(() => setActive(false), 500); 
+        createPlayer();
     }
 
     if (!is_active) { 
@@ -106,7 +110,7 @@ const WebPlayback = ({ token, setToken }) => {
                                 &gt;&gt;
                             </button>
 
-                            <button className="btn-spotify" onClick={() => { setActive(false); setTimeout(player.disconnect, 1000); createPlayer() }} >
+                            <button className="btn-spotify" onClick={handleDisconnect} >
                                 dc
                             </button>
 
