@@ -14,12 +14,12 @@ const track = {
     ]
 }
 
-const WebPlayback = ({ token, setToken }) => {
+const WebPlayback = ({ token }) => {
     const [is_paused, setPaused] = useState(false);
     const [is_active, setActive] = useState(false);
     const [player, setPlayer] = useState(undefined);
     const [current_track, setTrack] = useState(track);
-    const [volume, setVolume] = useState(100);
+    const [volume, setVolume] = useState(50);
 
     const createPlayer = () => {
         const script = document.createElement("script");
@@ -47,6 +47,7 @@ const WebPlayback = ({ token, setToken }) => {
 
             player.addListener("player_state_changed", (state => {
                 if (state.duration === 0) {
+                    setActive(false);
                     return;
                 }
                 else {

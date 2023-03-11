@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import WebPlayback from '../WebPlayback'
+import WebPlayback from '../components/WebPlayback'
 import Login from '../components/Login'
-import ErrorBoundary from '../util/SpotifyDisconnectCatcher';
 
-function App() {
+const Music = () => {
   	const [token, setToken] = useState('');
 
 	useEffect(() => {
@@ -22,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default Music;

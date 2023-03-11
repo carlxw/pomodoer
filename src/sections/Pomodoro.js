@@ -3,6 +3,8 @@ import Countdown from "../components/Countdown";
 import { secToString } from "../util/secToString";
 import { timerActive, timerOn, timerOff } from "../util/TimerControl";
 import { studyOn } from "../util/StudyControl";
+import { Howl } from "howler";
+import mp3 from "../alarm.mp3"
 
 const Pomodoro = () => {
     const enableFS = false;
@@ -29,9 +31,13 @@ const Pomodoro = () => {
         if (time <= 0 && timerActive) {
             timerOff();
             if (enableFS) document.exitFullscreen();
+            let sound = new Howl({
+                src: mp3
+            });
+            sound.play();
             setTimeout(() => {
                 alert("Timer");
-            }, 1000);
+            }, 500);
         }
     }, [time, enableFS]);
 
@@ -42,7 +48,7 @@ const Pomodoro = () => {
             
             <div className="timer_buttons_presets">
                 <button onClick={ () => {setTime(1500); studyOn()} }>25:00</button>
-                <button onClick={ () => {setTime(10); studyOn()} }>25:00</button>
+                <button onClick={ () => {setTime(3); studyOn()} }>25:00</button>
                 <p>study session</p>
 
                 <button onClick={ () => setTime(300) }>5:00</button>
