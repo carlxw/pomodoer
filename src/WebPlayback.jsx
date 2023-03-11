@@ -21,7 +21,7 @@ const WebPlayback = ({ token, setToken }) => {
     const [current_track, setTrack] = useState(track);
     const [volume, setVolume] = useState(100);
 
-    useEffect(() => {
+    const createPlayer = () => {
         const script = document.createElement("script");
         script.src = "https://sdk.scdn.co/spotify-player.js";
         script.async = true;
@@ -62,7 +62,11 @@ const WebPlayback = ({ token, setToken }) => {
             }));
 
             player.connect();
-        };
+        }
+    };
+
+    useEffect(() => {
+        createPlayer();   
     }, []);
 
     const handleVolumeChange = (e) => {
@@ -102,7 +106,7 @@ const WebPlayback = ({ token, setToken }) => {
                                 &gt;&gt;
                             </button>
 
-                            <button className="btn-spotify" onClick={() => { player.disconnect(); setToken("") }} >
+                            <button className="btn-spotify" onClick={() => { setActive(false); setTimeout(player.disconnect, 1000); createPlayer() }} >
                                 dc
                             </button>
 
