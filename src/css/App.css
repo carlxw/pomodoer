@@ -1,40 +1,77 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+:root {
+    --spotify-green: rgb(30, 215, 96);
+    --spotify-black: rgb(18, 18, 18);
+}
+
+* {
     margin: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
+    font-family: "Rubik";
+    box-sizing: border-box;
 }
 
 .todo {
-    background-color: rgb(69, 69, 69);
+    background-color: #222222;
 
     width: 50vw;
     height: 100vh;
     top: 0;
     left: 0;
     float: left;
-
+    padding: 5%;
     margin: 0;
+
+    color: white;
 }
 
 .music {
-    background-color: rgb(215, 215, 215);
+    background-color: rgb(255, 255, 255);
     
     width: 50vw;
     height: 50vh;
     top: 0;
     left: 0;
     float: right;
-
-    margin: 0;
+    
+    padding: 0.5%;
 }
 
 .pomodoro {
     background-color: rgb(86, 86, 86);
+    background-image: url("./texture.jpg");
     
     width: 50vw;
     height: 50vh;
     top: 0;
     left: 0;
     float: right;
-   
+    
+    text-align: center;
+    padding: 2.5%;
     margin: 0;
+    color: white;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: none;
+    text-align: center;
+} button:hover {
+    cursor: pointer;
+}
+
+input[type=text] {
+    width: 300px;
+}
+
+a:link {
+    text-decoration: none;
+} a:visited {
+    text-decoration: none;
 }

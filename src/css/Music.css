@@ -1,0 +1,31 @@
+.player {
+    background-color: white;
+    height: 100%;
+    border-radius: 15px;
+    padding: 10%;
+    color: black;
+}
+
+#spotify_login {
+    background-color: var(--spotify-green);
+    padding: 3% 5%;
+    font-weight: bold;
+    border-radius: 15px;
+} #spotify_login:hover {
+    text-decoration: underline;
+}
+
+#connect_icon {
+    margin-left: 10px;
+    margin-right: 6px;
+    padding: 0;
+    height: 15px;
+    width: 16px;
+    fill: inherit;
+}
+
+#volume_slider {
+    color: white
+}::-webkit-progress-value {
+    background-color: red;
+}

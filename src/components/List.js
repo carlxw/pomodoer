@@ -34,7 +34,7 @@ const List = ({ title }) => {
         updateTasksDone([]);
     }
     
-    // Don't refresh the page on form submit
+    // Don"t refresh the page on form submit
     const handleSubmit = (e) => {
         e.preventDefault();
     }
@@ -106,7 +106,6 @@ const List = ({ title }) => {
             <br />
 
             <form onSubmit={ handleSubmit }>
-                <input className="task_checkbox" type="checkbox" />
                 <input 
                     id="task_input"
                     type="text" 
@@ -115,15 +114,17 @@ const List = ({ title }) => {
                     value={ item } 
                     onChange={ (e) => setItem(e.target.value) } 
                     autoComplete="off"
-                />
+                /><br />
                 <button 
                     id="task_add" 
                     onClick={addTask}
                     type="submit"
-                >Add</button>
+                >Add</button><br />
+                <button onClick={clearDone}>Clear Done</button><br />
                 <button onClick={clearAll}>Clear All</button>
-                <button onClick={clearDone}>Clear Done</button>
             </form>
+            
+            <br /><br />
         </div>
     );
 }

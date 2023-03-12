@@ -1,4 +1,26 @@
 /* Applies strikethrough when checked */
 .task_checkbox:checked + .task_label {
     text-decoration: line-through;
+    color: grey;
+    opacity: 0.75;
+}
+
+.task_checkbox {
+    margin-bottom: 3%;
+}.task_checkbox:last-child {
+    margin-bottom: 0;
+}
+
+.task_label {
+    margin-left: 2%;
+}
+
+.list_header {
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 5%;
+}
+
+.task_checkbox {
+    margin-left: 2%;
 }

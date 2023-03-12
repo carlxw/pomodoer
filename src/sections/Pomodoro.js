@@ -6,6 +6,8 @@ import { studyOn } from "../util/StudyControl";
 import { Howl } from "howler";
 import mp3 from "../alarm.mp3"
 
+import "../css/Pomodoro.css";
+
 const Pomodoro = () => {
     const enableFS = false;
 
@@ -43,22 +45,32 @@ const Pomodoro = () => {
 
     return (
         <div className="pomodoro">
-            <h2 className="session_counter">{ `Study sesion no. ${studyNo}` }</h2>
+            <h2 className="session_counter">{ `Study session no. ${studyNo}` }</h2>
             { timerActive ? <Countdown timeObj={ {time, setTime} } studyObj={ {studyNo, setStudyNo} } /> : <h1>{ secToString(time) }</h1> }
             
             <div className="timer_buttons_presets">
-                <button onClick={ () => {setTime(1500); studyOn()} }>25:00</button>
-                <button onClick={ () => {setTime(3); studyOn()} }>25:00</button>
-                <p>study session</p>
+                <div className="btn_grp">
+                    <button onClick={ () => {setTime(1500); studyOn()} }>25:00</button>
+                    <p>study session</p>
+                </div>
 
-                <button onClick={ () => setTime(300) }>5:00</button>
-                <p>short break</p>
-
-                <button onClick={ () => setTime(900) }>15:00</button>
-                <p>long break</p>
+                {/* <div className="btn_grp">
+                    <button onClick={ () => {setTime(3); studyOn()} }>TEST</button>
+                    <p>test</p>
+                </div> */}
+                
+                <div className="btn_grp">
+                    <button onClick={ () => setTime(300) }>5:00</button>
+                    <p>short break</p>
+                </div>
+                
+                <div className="btn_grp">
+                    <button onClick={ () => setTime(900) }>15:00</button>
+                    <p>long break</p>
+                </div>
             </div>
 
-            <div>
+            <div className="timer_ctrl">
                 <button onClick={ handleTimerStart }>Start</button>
                 <button onClick={ timerOff }>Pause</button>
                 <button onClick={ () => { timerOff(); setTime(0) } }>Clear</button>

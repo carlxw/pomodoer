@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import WebPlayback from '../WebPlayback'
-import Login from '../components/Login'
+import React, { useState, useEffect } from "react";
+import WebPlayback from "../WebPlayback"
+import Login from "../components/Login"
+
+import "../css/Music.css";
 
 const Music = () => {
-  	const [token, setToken] = useState('');
+  	const [token, setToken] = useState("");
 
 	useEffect(() => {
 		async function getToken() {
-			const response = await fetch('/auth/token');
+			const response = await fetch("/auth/token");
 			const json = await response.json();
 			setToken(json.access_token);
 		}
@@ -16,7 +18,11 @@ const Music = () => {
 
   return (
 	<>
-		{ (token === '') ? <Login /> : <WebPlayback token={ token } setToken={ setToken } /> }
+		<div className="music">
+			<div className="player">
+				{ (token === "") ? <Login /> : <WebPlayback token={ token } /> }
+			</div>
+		</div>
 	</>
   );
 }

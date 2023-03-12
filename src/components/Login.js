@@ -1,10 +1,11 @@
-import React from 'react';
+import React from "react";
+import "../css/Music.css";
 
 function Login() {
     return (
-        <div className="App">
+        <div className="login">
             <header className="App-header">
-                <a className="btn-spotify" href="/auth/login" >
+                <a id="spotify_login" href="/auth/login" >
                     Login with Spotify 
                 </a>
             </header>

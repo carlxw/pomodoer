@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import "../css/MusicPlayer.css"; 
+
 const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive }) => {
     const [volume, setVolume] = useState(25);
 
@@ -16,7 +18,7 @@ const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive
 
     return(
         <>
-            <div className="container">
+            <div className="spotify-container">
                 <div className="main-wrapper">
                     <img src={ current_track.album.images[0].url } className="now-playing__cover" alt="" />
 
