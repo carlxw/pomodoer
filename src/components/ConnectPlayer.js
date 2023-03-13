@@ -5,13 +5,15 @@ const ConnectPlayer = () => {
 
     return (
         <>
-            <p style={{ margin: 0 }}>Click on 
+            <h1>You're connected!</h1>
+            <p style={{ margin: 0 }}>To start the player, click on the
             { 
                 <svg id="connect_icon" >
                     <path d={ iconData[0] } />
                     <path d={ iconData[1] } />
                 </svg>   
-            } to do this</p>
+            } icon and select "Pomodoro Website"</p>
+            <p>Once that's done, start listening to any playlist or album!</p>
         </>
     );
 }

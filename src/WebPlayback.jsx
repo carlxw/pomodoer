@@ -69,7 +69,7 @@ const WebPlayback = ({ token }) => {
         createPlayer();   
     }, []);
 
-    if (!is_active) { 
+    if (is_active) { 
         return (
             <ConnectPlayer />
         );
