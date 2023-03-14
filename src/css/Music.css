@@ -1,9 +1,10 @@
 .player {
-    background-color: white;
+    background-color: var(--spotify-black);
     height: 100%;
     border-radius: 15px;
-    padding: 10%;
-    color: black;
+    padding: 5%;
+    color: white;
+    position: relative;
 }
 
 #spotify_login {
@@ -21,11 +22,20 @@
     padding: 0;
     height: 15px;
     width: 16px;
-    fill: inherit;
+    fill: white;
 }
 
-#volume_slider {
-    color: white
-}::-webkit-progress-value {
-    background-color: red;
+#connected {
+    margin: 0;
+}
+
+.player_connected {
+    position: absolute;
+    top: 70%;
+}
+
+@media only screen and (max-width: 500px) {
+    .player {
+        padding-top: 20%;
+    }
 }

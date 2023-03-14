@@ -7,7 +7,6 @@
 
 * {
     margin: 0;
-    /* overflow: hidden; */
     font-family: "Rubik";
     box-sizing: border-box;
 }
@@ -25,7 +24,8 @@
 
     color: white;
 
-    overflow-y: scroll;
+    /* Set to scroll later */
+    overflow-y: hidden;
 }
 
 .music {
@@ -54,6 +54,10 @@
     padding: 2.5%;
     margin: 0;
     color: white;
+}
+
+.cls {
+	clear: both;
 }
 
 h1 {

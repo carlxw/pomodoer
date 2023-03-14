@@ -8,6 +8,9 @@ const List = ({ title }) => {
     const [item, setItem] = useState("");
 
     const addTask = () => {
+        // Do nothing if the user typed nothing
+        if (item === "") return;
+
         // Check if there is a duplicate entry
         const dup = tasks.find((x) => (x === item));
 
