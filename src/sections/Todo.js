@@ -1,4 +1,3 @@
-import "../css/Todo.css";
 import List from "../components/List";
 
 const Todo = () => {

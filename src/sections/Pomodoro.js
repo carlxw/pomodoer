@@ -6,8 +6,6 @@ import { studyOn } from "../util/StudyControl";
 import { Howl } from "howler";
 import mp3 from "../alarm.mp3"
 
-import "../css/Pomodoro.css";
-
 const Pomodoro = () => {
     const enableFS = false;
 

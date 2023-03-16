@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import WebPlayback from "../WebPlayback"
 import Login from "../components/Login"
 
-import "../css/Music.css";
-
 const Music = () => {
   	const [token, setToken] = useState("");
 
