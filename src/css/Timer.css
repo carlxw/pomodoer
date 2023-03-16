@@ -1,11 +1,10 @@
 .pomodoro {
     display: flex;
     flex-direction: column;
+    padding-top: 5vh;
 } .pomodoro > div {
-    flex: 1;
-}
-
-.btn_grp {
+    min-width: 0;
+    min-height: 0;
 }
 
 .timer_btn_presets {
@@ -15,6 +14,7 @@
 }
 
 .timer_ctrl {
+    padding-top: 5vh;
 } .timer_ctrl > div {
 }.timer_ctrl button {
     padding: 0;
@@ -22,5 +22,5 @@
 }
 
 #timer-countdown {
-
+    margin: 5vh 0;
 }

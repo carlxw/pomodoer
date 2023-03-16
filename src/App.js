@@ -7,9 +7,14 @@ import Music from "./sections/Music";
 function App() {
     return (
         <div className="app">
-            <Todo />
-            <div id="container_R"><Pomodoro /></div>
-            <div id="container_R"><Music /></div>
+            <div id="container">
+                {/* <div id="child-container"><Todo /></div>
+                <div id="child-container"><Pomodoro /></div>
+                <div id="child-container"><Music /></div> */}
+                <Todo />
+                <Pomodoro />
+                <Music />
+            </div>
         </div>
     );
 }
