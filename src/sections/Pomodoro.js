@@ -1,3 +1,5 @@
+// Probably coded poorly - Look to restructure
+
 import {  useEffect, useState } from "react";
 import Countdown from "../components/Countdown";
 import { secToString } from "../util/secToString";
@@ -5,6 +7,8 @@ import { timerActive, timerOn, timerOff } from "../util/TimerControl";
 import { studyOn } from "../util/StudyControl";
 import { Howl } from "howler";
 import mp3 from "../alarm.mp3"
+
+import "../css/Timer.css";
 
 const Pomodoro = () => {
     const enableFS = false;
@@ -44,9 +48,9 @@ const Pomodoro = () => {
     return (
         <div className="pomodoro">
             <h2 className="session_counter">{ `Study session no. ${studyNo}` }</h2>
-            { timerActive ? <Countdown timeObj={ {time, setTime} } studyObj={ {studyNo, setStudyNo} } /> : <h1>{ secToString(time) }</h1> }
-            
-            <div className="timer_buttons_presets">
+            { timerActive ? <Countdown timeObj={ {time, setTime} } studyObj={ {studyNo, setStudyNo} } /> : <h1 id="timer-countdown">{ secToString(time) }</h1> }
+
+            <div className="timer_btn_presets">
                 <div className="btn_grp">
                     <button onClick={ () => {setTime(1500); studyOn()} }>25:00</button>
                     <p>study session</p>
@@ -70,8 +74,20 @@ const Pomodoro = () => {
 
             <div className="timer_ctrl">
                 <button onClick={ handleTimerStart }>Start</button>
-                <button onClick={ timerOff }>Pause</button>
-                <button onClick={ () => { timerOff(); setTime(0) } }>Clear</button>
+                <button onClick={() => {
+                    if (timerActive) {
+                        timerOff();
+                    } else {
+                        alert("Timer not active.");
+                    }
+                }}>Pause</button>
+                <button onClick={() => { 
+                    if (timerActive) {
+                        timerOff(); setTime(0)
+                    } else {
+                        alert("Timer not active.");
+                    }
+                }}>Clear</button>
             </div>
         </div>
     );

@@ -1,0 +1,26 @@
+.pomodoro {
+    display: flex;
+    flex-direction: column;
+} .pomodoro > div {
+    flex: 1;
+}
+
+.btn_grp {
+}
+
+.timer_btn_presets {
+    display: flex;
+} .timer_btn_presets > div {
+    flex: 1;
+}
+
+.timer_ctrl {
+} .timer_ctrl > div {
+}.timer_ctrl button {
+    padding: 0;
+} .timer_ctrl button:last-child {
+}
+
+#timer-countdown {
+
+}

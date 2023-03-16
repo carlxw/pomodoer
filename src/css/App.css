@@ -5,10 +5,17 @@
     --spotify-black: rgb(18, 18, 18);
 }
 
+#container {
+    display: flex;
+    justify-content: flex-end;
+    flex-basis: auto;
+}
+
 * {
     margin: 0;
     font-family: "Rubik";
     box-sizing: border-box;
+    overflow-y: hidden;
 }
 
 .todo {
@@ -26,6 +33,7 @@
 
     /* Set to scroll later */
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .music {
@@ -62,21 +70,55 @@
 h1 {
     margin: 0;
     padding: 0;
+    font-size: 3rem;
+} h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.5rem;
+} p {
+    font-size: 2rem;
+    /* margin: 0;
+    padding: 0;
+    width: min-content; */
+} label.task_label {
+    font-size: 1.5rem;
 }
 
 button {
-    border: none;
+    /* border: none;
     text-align: center;
+    font-size: 2rem;
+    border-radius: 15px;
+    padding: .5%; */
 } button:hover {
     cursor: pointer;
 }
 
-input[type=text] {
-    width: 300px;
+input[type="text"] {
+    width: 100%;
+    font-size: 1.5rem;
+    font-style: italic;
+    background-color: transparent;
+    border: none;
+} input, select, textarea {
+    color: white;
+    outline: none;
+} 
+
+input[type=checkbox] {
+    -ms-transform: scale(1.25);
+    -moz-transform: scale(1.25); 
+    -webkit-transform: scale(1.25); 
+    -o-transform: scale(1.25); 
+    transform: scale(1.25);
+    padding: 10px;
+    cursor: pointer;
 }
 
 a:link {
     text-decoration: none;
+    color: black;
 } a:visited {
     text-decoration: none;
+    color: black;
 }

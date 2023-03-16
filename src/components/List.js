@@ -9,7 +9,10 @@ const List = ({ title }) => {
 
     const addTask = () => {
         // Do nothing if the user typed nothing
-        if (item === "") return;
+        if (item === "") {
+            alert("You need to enter something")
+            return;
+        };
 
         // Check if there is a duplicate entry
         const dup = tasks.find((x) => (x === item));
