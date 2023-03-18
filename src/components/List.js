@@ -39,7 +39,8 @@ const List = ({ title }) => {
 
     // Remove only the tasks that are completed
     const clearDone = () => {
-        updateTasksDone([]);
+        if (tasksDone === []) updateTasksDone([]);
+        else alert("Nothing to remove.");
     }
     
     // Don"t refresh the page on form submit
@@ -90,7 +91,7 @@ const List = ({ title }) => {
                             onChange={ handleCheck }
                             style={ x.isST ? {marginLeft: "50px"} : null }
                         />
-                        <label className="task_label">{ x.taskName }</label>
+                        <label className="task-label">{ x.taskName }</label>
 
                     </div>
                 ))}
@@ -105,7 +106,7 @@ const List = ({ title }) => {
                             onChange={ handleCheck }
                             style={ x.isST ? {marginLeft: "50px"} : null }
                         />
-                        <label className="task_label">{ x.taskName }</label>
+                        <label className="task-label">{ x.taskName }</label>
                         <br />
                     </div>
                 ))}

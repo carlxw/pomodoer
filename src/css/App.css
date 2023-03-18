@@ -73,17 +73,14 @@ h1 {
     /* margin: 0;
     padding: 0;
     width: min-content; */
-} label.task_label {
+} label.task-label {
     font-size: 1.5rem;
 }
 
 button {
-    /* border: none;
-    text-align: center;
-    font-size: 2rem;
-    border-radius: 15px;
-    padding: .5%; */
-} button:hover {
+    padding: 0.3rem 0.5rem;
+}
+button:hover { 
     cursor: pointer;
 }
 
