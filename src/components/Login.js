@@ -1,14 +1,22 @@
 import React from "react";
 
+import "../css/Pre_Player.css";
+import image from "../spotify-logo.png";
+
 function Login() {
     return (
-        <div className="login">
-            <header className="App-header">
-                <a id="spotify_login" href="/auth/login" >
-                    Login with Spotify 
-                </a>
-            </header>
-        </div>
+        <>
+            {/* <img 
+                src={ image }
+                style={{
+                    height: "10rem"
+                }}
+            /> */}
+
+            <a id="spotify-login" href="/auth/login">
+                Login with Spotify 
+            </a>
+        </>
     );
 }
 

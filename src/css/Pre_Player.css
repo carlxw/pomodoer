@@ -1,0 +1,44 @@
+#spotify-login {
+    background-color: var(--spotify-green);
+    padding: 2rem;
+    border-radius: 2rem;
+    display: block;
+    color: white;
+}
+
+.music {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--spotify-black)
+}
+
+/* ================================================== */
+.player-connected {
+    margin-top: 10rem;
+    color: white;
+    justify-content: left;
+    align-items: baseline;
+    flex-direction: column;
+    flex: 1;
+    display: flex;
+    background-color: var(--spotify-black);
+    height: 100%;
+    border-radius: 15px;
+    color: white;
+}
+
+.player-connected > div > h1 {
+    font-size: 2.5rem;
+} .player-connected > div > p {
+    font-size: 1.25rem;
+}
+
+#connect-icon {
+    margin-left: 10px;
+    margin-right: 6px;
+    padding: 0;
+    height: 15px;
+    width: 16px;
+    fill: white;
+}

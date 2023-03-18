@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import "../css/Player.css";
+
 const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive }) => {
     const [volume, setVolume] = useState(25);
 
