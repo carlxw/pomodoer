@@ -9,7 +9,7 @@
     margin: 0;
     font-family: "Rubik";
     box-sizing: border-box;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .todo {
@@ -26,8 +26,7 @@
     color: white;
 
     /* Set to scroll later */
-    overflow-y: hidden;
-    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .music {
@@ -88,27 +87,6 @@ button {
     cursor: pointer;
 }
 
-input[type="text"] {
-    width: 100%;
-    font-size: 1.5rem;
-    font-style: italic;
-    background-color: transparent;
-    border: none;
-} input, select, textarea {
-    color: white;
-    outline: none;
-} 
-
-input[type=checkbox] {
-    -ms-transform: scale(1.25);
-    -moz-transform: scale(1.25); 
-    -webkit-transform: scale(1.25); 
-    -o-transform: scale(1.25); 
-    transform: scale(1.25);
-    padding: 10px;
-    cursor: pointer;
-}
-
 a:link {
     text-decoration: none;
     color: black;
@@ -130,6 +108,7 @@ a:link {
 
     html {
         scroll-behavior: smooth;
+        overflow-y: auto;
     }
 
     .pomodoro,
@@ -138,12 +117,9 @@ a:link {
         height: 100vh;
         width: 100vw;
         scroll-snap-align: start;
+        overflow-y: hidden;
     } .todo {
         /* Override height */
         height: min-content;
-    }
-
-    * {
-        overflow-y: scroll;
     }
 }

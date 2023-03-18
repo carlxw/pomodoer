@@ -1,6 +1,50 @@
 /* Applies strikethrough when checked */
-.task_checkbox:checked + .task_label {
+input[type="checkbox"]:checked + label {
     text-decoration: line-through;
     color: grey;
     opacity: 0.75;
+}
+
+input[type="text"] {
+    width: 100%;
+    font-size: 1.5rem;
+    font-style: italic;
+    background-color: transparent;
+    border: none;
+    color: grey;
+    opacity: 0.75;
+} input, select, textarea {
+    color: white;
+    outline: none;
+} 
+
+input[type=checkbox] {
+    -ms-transform: scale(1.25);
+    -moz-transform: scale(1.25); 
+    -webkit-transform: scale(1.25); 
+    -o-transform: scale(1.25); 
+    transform: scale(1.25);
+    padding: 10px;
+    cursor: pointer;
+
+    /* Create list indentation */
+    margin-right: 1rem;
+    margin-left: 2rem;
+}
+
+.list-header {
+    margin-bottom: 1rem;
+}
+
+.list-footer {
+    margin-left: 3.5rem;
+}
+
+.list-footer > div {
+    margin-left: 0.5rem;
+    margin-top: 1rem;
+} .list-footer > div button {
+    margin-right: 1rem;
+} .list-footer > div button:last-child {
+    margin-right: 0;
 }

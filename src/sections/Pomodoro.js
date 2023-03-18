@@ -47,32 +47,32 @@ const Pomodoro = () => {
 
     return (
         <div className="pomodoro">
-            <h2 className="session_counter">{ `Study session no. ${studyNo}` }</h2>
+            <h2 className="session-counter">{ `Study session no. ${studyNo}` }</h2>
             { timerActive ? <Countdown timeObj={ {time, setTime} } studyObj={ {studyNo, setStudyNo} } /> : <h1 id="timer-countdown">{ secToString(time) }</h1> }
 
-            <div className="timer_btn_presets">
-                <div className="btn_grp">
+            <div className="timer-btn-presets">
+                <div className="btn-grp">
                     <button onClick={ () => {setTime(1500); studyOn()} }>25:00</button>
-                    <p>study session</p>
+                    <p id="timer-label" >study session</p>
                 </div>
 
-                {/* <div className="btn_grp">
+                {/* <div className="btn-grp">
                     <button onClick={ () => {setTime(3); studyOn()} }>TEST</button>
                     <p>test</p>
                 </div> */}
                 
-                <div className="btn_grp">
+                <div className="btn-grp">
                     <button onClick={ () => setTime(300) }>5:00</button>
-                    <p>short break</p>
+                    <p id="timer-label" >short break</p>
                 </div>
                 
-                <div className="btn_grp">
+                <div className="btn-grp">
                     <button onClick={ () => setTime(900) }>15:00</button>
-                    <p>long break</p>
+                    <p id="timer-label" >long break</p>
                 </div>
             </div>
 
-            <div className="timer_ctrl">
+            <div className="timer-ctrl">
                 <button onClick={ handleTimerStart }>Start</button>
                 <button onClick={() => {
                     if (timerActive) {
@@ -81,13 +81,7 @@ const Pomodoro = () => {
                         alert("Timer not active.");
                     }
                 }}>Pause</button>
-                <button onClick={() => { 
-                    if (timerActive) {
-                        timerOff(); setTime(0)
-                    } else {
-                        alert("Timer not active.");
-                    }
-                }}>Clear</button>
+                <button onClick={ () => { timerOff(); setTime(0) }}>Clear</button>
             </div>
         </div>
     );

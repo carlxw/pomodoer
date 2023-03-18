@@ -1,24 +1,29 @@
 .pomodoro {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     padding-top: 5vh;
-} .pomodoro > div {
+} /*.pomodoro > div {
     min-width: 0;
     min-height: 0;
-}
+} */
 
-.timer_btn_presets {
+.timer-btn-presets {
     display: flex;
-} .timer_btn_presets > div {
+} .timer-btn-presets > div {
     flex: 1;
 }
 
-.timer_ctrl {
+#timer-label {
+    font-size: 1rem;
+}
+
+.timer-ctrl {
     padding-top: 5vh;
-} .timer_ctrl > div {
-}.timer_ctrl button {
+} .timer-ctrl button {
     padding: 0;
-} .timer_ctrl button:last-child {
+    margin-right: 3%;
+} .timer-ctrl button:last-child {
+    margin-right: 0;
 }
 
 #timer-countdown {

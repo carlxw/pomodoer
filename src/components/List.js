@@ -2,6 +2,8 @@ import { useState } from "react";
 import { arrRemove } from "../util/ArrayUtil";
 import Task from "../util/Task";
 
+import "../css/Todo.css";
+
 const List = ({ title }) => {
     let [tasks, updateTasks] = useState([new Task("Task 1", false, false), new Task("Task 2", false, false), new Task("Task 3", false, false), new Task("Task 4", false, false), new Task("Task 5", false, false)]);
     let [tasksDone, updateTasksDone] = useState([]);
@@ -74,13 +76,13 @@ const List = ({ title }) => {
 
     return (
         <div className="task_list">
-            <h1 className="list_header">{ title }</h1>
+            <h1 className="list-header">{ title }</h1>
             
             <div>
                 {tasks.map((x) => (
                     <div key={ x.taskName }>
                         <input 
-                            className="task_checkbox" 
+                            className="task-checkbox" 
                             defaultChecked={ false }
                             type="checkbox" 
                             name={ x.taskName } 
@@ -89,13 +91,13 @@ const List = ({ title }) => {
                             style={ x.isST ? {marginLeft: "50px"} : null }
                         />
                         <label className="task_label">{ x.taskName }</label>
-                        <br />
+
                     </div>
                 ))}
                 {tasksDone.map((x) => (
                     <div key={ x.taskName }>
                         <input 
-                            className="task_checkbox" 
+                            className="task-checkbox" 
                             defaultChecked={ true }
                             type="checkbox" 
                             name={ x.taskName } 
@@ -111,25 +113,30 @@ const List = ({ title }) => {
 
             <br />
 
-            <form onSubmit={ handleSubmit }>
+            <form onSubmit={ handleSubmit } className="list-footer">
                 <input 
                     id="task_input"
                     type="text" 
                     name="item" 
-                    placeholder="Type something here..."
+                    placeholder="Enter a new task..."
                     value={ item } 
                     onChange={ (e) => setItem(e.target.value) } 
                     autoComplete="off"
-                /><br />
-                <button 
-                    id="task_add" 
-                    onClick={addTask}
-                    type="submit"
-                >Add</button><br />
-                <button onClick={clearDone}>Clear Done</button><br />
-                <button onClick={clearAll}>Clear All</button>
+                />
+                
+                <div>
+                    <button 
+                        id="task_add" 
+                        onClick={addTask}
+                        type="submit"
+                    >Add</button>
+
+                    <button onClick={ clearDone }>Clear Done</button>
+                    <button onClick={ clearAll }>Clear All</button>
+                </div>
             </form>
             
+            {/* Fight me. */}
             <br /><br />
         </div>
     );
