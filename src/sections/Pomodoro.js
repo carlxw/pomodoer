@@ -1,5 +1,3 @@
-// Probably coded poorly - Look to restructure
-
 import {  useEffect, useState } from "react";
 import Countdown from "../components/Countdown";
 import { secToString } from "../util/secToString";
@@ -23,6 +21,8 @@ const Pomodoro = () => {
     // The start/pause button for the timer
     const [timerText, setTimerText] = useState("Start");
     
+    /* ======================================================= */
+
     // Bug: Spamming start button
     const startTimer = () => {
         // Prevents starting timer on 00:00
@@ -89,13 +89,8 @@ const Pomodoro = () => {
 
             <div className="timer-ctrl">
                 <button onClick={() => {
-                    if (timerActive) {
-                        pauseTimer();
-                        update();
-                    } else {
-                        startTimer();
-                        update();
-                    }
+                    if (timerActive) pauseTimer();
+                    else startTimer();
                 }}>
                     { timerText }
                 </button>

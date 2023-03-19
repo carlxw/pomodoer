@@ -1,7 +1,7 @@
 .pomodoro {
     /* display: flex;
     flex-direction: column; */
-    padding-top: 5vh;
+    padding-top: 3vh;
 } /*.pomodoro > div {
     min-width: 0;
     min-height: 0;
@@ -41,5 +41,9 @@
 
 /* Timer start/pause and clear */
 .timer-ctrl > button {
-
+    font-size: 1rem;
+    padding: 1%;
+    width: 5vw;
+    border-radius: 1rem;
+    border: none;
 }
