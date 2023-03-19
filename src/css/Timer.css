@@ -29,3 +29,17 @@
 #timer-countdown {
     margin: 5vh 0;
 }
+
+/* Timer presets */
+.btn-grp > button {
+    font-size: 2rem;
+    padding: 1% 5%;
+    border-radius: 1rem;
+    border: none;
+    margin-bottom: 2%;
+}
+
+/* Timer start/pause and clear */
+.timer-ctrl > button {
+
+}

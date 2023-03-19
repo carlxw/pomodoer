@@ -11,24 +11,39 @@ import mp3 from "../alarm.mp3"
 import "../css/Timer.css";
 
 const Pomodoro = () => {
+    // Enable or disable fullscreen for focus
     const enableFS = false;
 
     // The time itself that will decrement with every second, controlled by Timer
     const [time, setTime] = useState(0);
+
+    // Counts the number of study sessions that occured
+    const [studyNo, setStudyNo] = useState(1);
+
+    // The start/pause button for the timer
+    const [timerText, setTimerText] = useState("Start");
     
-    // Prevents starting timer on 00:00
-    const handleTimerStart = () => {
+    // Bug: Spamming start button
+    const startTimer = () => {
+        // Prevents starting timer on 00:00
         if (time > 0) {
             setTime(time - 1); 
             timerOn();
             if (enableFS) document.body.requestFullscreen();
+            setTimerText("Pause");
         } else {
             alert("Select a timer preset.");
         }
     }
 
-    // Counts the number of study sessions that occured
-    const [studyNo, setStudyNo] = useState(1);
+    const pauseTimer = () => {
+        if (timerActive) {
+            timerOff();
+            setTimerText("Start");
+        } else {
+            alert("Timer not active.");
+        }
+    }
 
     // Alert the user that the timer is up 
     useEffect(() => {
@@ -73,15 +88,18 @@ const Pomodoro = () => {
             </div>
 
             <div className="timer-ctrl">
-                <button onClick={ handleTimerStart }>Start</button>
                 <button onClick={() => {
                     if (timerActive) {
-                        timerOff();
+                        pauseTimer();
+                        update();
                     } else {
-                        alert("Timer not active.");
+                        startTimer();
+                        update();
                     }
-                }}>Pause</button>
-                <button onClick={ () => { timerOff(); setTime(0) }}>Clear</button>
+                }}>
+                    { timerText }
+                </button>
+                <button onClick={ () => { pauseTimer(); setTime(0) }}>Clear</button>
             </div>
         </div>
     );
