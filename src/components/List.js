@@ -5,10 +5,15 @@ import Task from "../util/Task";
 import "../css/Todo.css";
 
 const List = ({ title }) => {
-    let [tasks, updateTasks] = useState([new Task("Task 1", false, false), new Task("Task 2", false, false), new Task("Task 3", false, false), new Task("Task 4", false, false), new Task("Task 5", false, false)]);
+    // Idea: Display list = incomplete tasks + complete tasks array merge
+    let [tasks, updateTasks] = useState([new Task("Task 1", false, false), new Task("Task 2", false, false), new Task("Task 3", false, false)]);
     let [tasksDone, updateTasksDone] = useState([]);
+
+    // What the user types in the input box
     const [item, setItem] = useState("");
 
+    /* ============================================================================== */
+    
     const addTask = () => {
         // Do nothing if the user typed nothing
         if (item === "") {
@@ -22,11 +27,13 @@ const List = ({ title }) => {
         // Truthy - There is a duplicate entry
         if (dup) {
             alert("Duplicate entry.");
-        } else {
-            // Add new task to array
+        } 
+        // Add new task to array
+        else {
             tasks.push(new Task(item, false, false));
             updateTasks(tasks);
         }
+
         // Reset input field text
         setItem("");
     }

@@ -32,8 +32,8 @@
 
 /* Timer presets */
 .btn-grp > button {
-    font-size: 2rem;
-    padding: 1% 5%;
+    font-size: 1.5rem;
+    padding: 0.5rem 2rem;
     border-radius: 1rem;
     border: none;
     margin-bottom: 2%;
@@ -43,7 +43,7 @@
 .timer-ctrl > button {
     font-size: 1rem;
     padding: 1%;
-    width: 5vw;
+    width: 5rem;
     border-radius: 1rem;
     border: none;
 }

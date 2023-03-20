@@ -10,6 +10,7 @@ const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive
         setVolume(e.target.value);
     }
 
+    // Future
     const handleDisconnect = () => {
         if (player) player.disconnect(); 
         setTimeout(() => setActive(false), 500); 
