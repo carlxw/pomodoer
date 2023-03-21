@@ -7,10 +7,11 @@ import { Howl } from "howler";
 import mp3 from "../alarm.mp3"
 
 import "../css/Timer.css";
+import config from "../config.json";
 
 const Pomodoro = () => {
     // Enable or disable fullscreen for focus
-    const enableFS = false;
+    const enableFS = config.enable_fullscreen;
 
     // The time itself that will decrement with every second, controlled by Timer
     const [time, setTime] = useState(0);
@@ -67,7 +68,7 @@ const Pomodoro = () => {
 
             <div className="timer-btn-presets">
                 <div className="btn-grp">
-                    <button onClick={ () => {setTime(1500); studyOn()} }>25:00</button>
+                    <button onClick={ () => {setTime(config.study_time_s); studyOn()} }>{ secToString(config.study_time_s) }</button>
                     <p id="timer-label" >study session</p>
                 </div>
 
@@ -77,12 +78,12 @@ const Pomodoro = () => {
                 </div> */}
                 
                 <div className="btn-grp">
-                    <button onClick={ () => setTime(300) }>5:00</button>
+                    <button onClick={ () => setTime(config.shortbreak_time_s) }>{ secToString(config.shortbreak_time_s) }</button>
                     <p id="timer-label" >short break</p>
                 </div>
                 
                 <div className="btn-grp">
-                    <button onClick={ () => setTime(900) }>15:00</button>
+                    <button onClick={ () => setTime(config.longbreak_time_s) }>{ secToString(config.longbreak_time_s) }</button>
                     <p id="timer-label" >long break</p>
                 </div>
             </div>

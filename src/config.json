@@ -1,0 +1,28 @@
+{
+    "enable_fullscreen": false,
+
+    "WEBPAGE_NAME======================": null,
+    "webpage_name": "Pomodoro Timer",
+    "sdk_player_name": "Pomodoro Timer",
+
+    "TIMER_PRESETS=====================": null,
+    "study_time_s": 1500,
+    "shortbreak_time_s": 300,
+    "longbreak_time_s": 1200,
+
+    "LIST_HEADERS======================": null,
+    "todo_header": "Session Goals",
+    "break_header": "Break Goals",
+
+    "DEFAULT_LIST======================": null,
+    "todo_default": [
+        {"name": "Record what", "isST": false, "isDone": false}, 
+        {"name": "I need", "isST": false, "isDone": false}, 
+        {"name": "to do here!", "isST": false, "isDone": false}
+    ],
+    "breaks_default": [
+        {"name": "I'll do", "isST": false, "isDone": false}, 
+        {"name": "these things", "isST": false, "isDone": false}, 
+        {"name": "on my break!", "isST": false, "isDone": false}
+    ]
+}

@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import ConnectPlayer from "./components/ConnectPlayer";
 import MusicPlayer from "./components/MusicPlayer";
 
+import config from "./config.json";
+
 const track = {
     name: "",
     album: {
@@ -31,7 +33,7 @@ const WebPlayback = ({ token }) => {
 
         window.onSpotifyWebPlaybackSDKReady = () => {
             const player = new window.Spotify.Player({
-                name: "Pomodoro Website",
+                name: config.sdk_player_name,
                 getOAuthToken: callback => { callback(token); },
                 volume: 0.25
             });
