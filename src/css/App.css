@@ -12,6 +12,10 @@
     overflow: hidden;
 }
 
+.react-icons {
+    vertical-align: middle;
+}
+
 .todo {
     background-color: #222222;
 
@@ -39,8 +43,6 @@
     float: right;
     
     padding: 0.5%;
-
-    border: 3px white solid;
 }
 
 .pomodoro {

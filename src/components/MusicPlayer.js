@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { IconContext } from "react-icons";
+import { MdPause, MdPlayArrow, MdVolumeUp } from "react-icons/md";
 
 import "../css/Player.css";
 
@@ -32,21 +34,25 @@ const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive
                         <div className="cls" />
 
                         <div className="media-controls">
-                            <button className="btn-spotify" onClick={() => { player.previousTrack() }} >
-                                &lt;&lt;
-                            </button>
+                            <div className="buttons">
+                                <button id="change-track" className="btn-spotify" onClick={() => { player.previousTrack() }} >
+                                    &lt;&lt;
+                                </button>
 
-                            <button id="play-pause" className="btn-spotify" onClick={() => { player.togglePlay() }} >
-                                { is_paused ? "PLAY" : "PAUSE" }
-                            </button>
+                                <button id="play-pause" className="btn-spotify" onClick={() => { player.togglePlay() }} >
+                                    <IconContext.Provider value={{ size: "2rem" }}>
+                                        { is_paused ? <MdPlayArrow className="react-icons"/> : <MdPause className="react-icons"/> }
+                                    </IconContext.Provider>
+                                </button>
 
-                            <button className="btn-spotify" onClick={() => { player.nextTrack() }} >
-                                &gt;&gt;
-                            </button>
+                                <button id="change-track" className="btn-spotify" onClick={() => { player.nextTrack() }} >
+                                    &gt;&gt;
+                                </button>
 
-                            {/* <button className="btn-spotify" onClick={handleDisconnect} >
-                                Disconnect
-                            </button> */}
+                                {/* <button className="btn-spotify" onClick={handleDisconnect} >
+                                    Disconnect
+                                </button> */}
+                            </div>
                             
                             <div className="volume-slider">
                                 <input 
@@ -57,7 +63,11 @@ const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive
                                     onChange={ handleVolumeChange }
                                     step="1"
                                 />
-                                <label>Vol</label>
+                                <label>
+                                    <IconContext.Provider value={{ color: "white", size: "1rem", verticalAlign: "bottom" }}>
+                                        <MdVolumeUp />
+                                    </IconContext.Provider>
+                                </label>
                             </div>
                         </div>
                     </div>

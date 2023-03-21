@@ -32,15 +32,28 @@
 /* Artist Name */
 .now-playing__artist {
     font-size: 1.5rem;
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
     height: 2rem;
-    margin-bottom: 1rem;
-}
-
-.media-controls > button {
-
+    margin-bottom: 2rem;
 }
 
 #play-pause {
-    width: 5rem;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: white;
+    margin: 0 1rem;
+} #change-track {
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
+.volume-slider {
+    height: 2rem;
+    margin-top: 1.5rem;
+} .volume-slider > input[type="range"]{
+    width: 7rem;
+    margin-right: 1rem;
 }
