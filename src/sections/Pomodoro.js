@@ -95,7 +95,7 @@ const Pomodoro = () => {
                 }}>
                     { timerText }
                 </button>
-                <button onClick={ () => { pauseTimer(); setTime(0) }}>Clear</button>
+                <button onClick={ () => { setTime(0); pauseTimer(); }}>Clear</button>
             </div>
         </div>
     );

@@ -1,9 +1,24 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    gap: 3rem;
+}
+
+.login-container > div > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
 #spotify-login {
     background-color: var(--spotify-green);
-    padding: 2rem;
+    padding: 1.25rem;
     border-radius: 2rem;
-    display: block;
+    display: inline-block;
     color: white;
+    text-align: center;
 }
 
 .music {
