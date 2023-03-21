@@ -1,3 +1,46 @@
+.spotify-main-wrapper {
+    padding: 3.5rem 3rem;
+}
+
+/* Cover Art */
 .now-playing__cover {
-    
+    border-radius: 1rem;
+    border: 0.3rem white solid;
+    height: 15rem;
+    width: 15rem;
+    float: left;
+}
+
+.now-playing__side {
+    padding-left: 2rem;
+}
+
+.song-info {
+    color: white;
+}
+
+/* Track name */
+.now-playing__name {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 3.5rem;
+}
+
+/* Artist Name */
+.now-playing__artist {
+    font-size: 1.5rem;
+    margin-top: 0.75rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+
+.media-controls > button {
+
+}
+
+#play-pause {
+    width: 5rem;
 }

@@ -1,4 +1,4 @@
-import "../css/Pre_Player.css";
+import "../css/Youre_Connected.css";
 
 const ConnectPlayer = () => {
     // Pulled directly from Spotify web player

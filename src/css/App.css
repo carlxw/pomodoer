@@ -39,6 +39,8 @@
     float: right;
     
     padding: 0.5%;
+
+    border: 3px white solid;
 }
 
 .pomodoro {
