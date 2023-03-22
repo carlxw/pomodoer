@@ -17,9 +17,7 @@ const Music = () => {
   return (
 	<>
 		<div className="music">
-			<div className="player">
-				{ (token === "") ? <Login /> : <WebPlayback token={ token } /> }
-			</div>
+			{ (token === "") ? <Login /> : <WebPlayback token={ token } /> }
 		</div>
 	</>
   );

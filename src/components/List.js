@@ -85,65 +85,64 @@ const List = ({ title, items }) => {
             <h1 className="list-header">{ title }</h1>
             
             <div>
-                {tasks.map((x) => (
-                    <div key={ x.taskName }>
-                        <input 
-                            className="task-checkbox" 
-                            defaultChecked={ false }
-                            type="checkbox" 
-                            name={ x.taskName } 
-                            value={ x.taskName } 
-                            onChange={ handleCheck }
-                            style={ x.isST ? {marginLeft: "50px"} : null }
-                        />
-                        <label className="task-label">{ x.taskName }</label>
-
-                    </div>
-                ))}
-                {tasksDone.map((x) => (
-                    <div key={ x.taskName }>
-                        <input 
-                            className="task-checkbox" 
-                            defaultChecked={ true }
-                            type="checkbox" 
-                            name={ x.taskName } 
-                            value={ x.taskName } 
-                            onChange={ handleCheck }
-                            style={ x.isST ? {marginLeft: "50px"} : null }
-                        />
-                        <label className="task-label">{ x.taskName }</label>
-                        <br />
-                    </div>
-                ))}
-            </div>
-
-            <br />
-
-            <form onSubmit={ handleSubmit } className="list-footer">
-                <input 
-                    id="task_input"
-                    type="text" 
-                    name="item" 
-                    placeholder="Enter a new task..."
-                    value={ item } 
-                    onChange={ (e) => setItem(e.target.value) } 
-                    autoComplete="off"
-                />
-                
                 <div>
-                    <button 
-                        id="task-add" 
-                        onClick={addTask}
-                        type="submit"
-                    >Add</button>
+                    {tasks.map((x) => (
+                        <div key={ x.taskName }>
+                            <input 
+                                className="task-checkbox" 
+                                defaultChecked={ false }
+                                type="checkbox" 
+                                name={ x.taskName } 
+                                value={ x.taskName } 
+                                onChange={ handleCheck }
+                                style={ x.isST ? {marginLeft: "50px"} : null }
+                            />
+                            <label className="task-label">{ x.taskName }</label>
 
-                    <button id="task-clear-done" onClick={ clearDone }>Clear Done</button>
-                    <button id="task-clear-all" onClick={ clearAll }>Clear All</button>
+                        </div>
+                    ))}
+                    {tasksDone.map((x) => (
+                        <div key={ x.taskName }>
+                            <input 
+                                className="task-checkbox" 
+                                defaultChecked={ true }
+                                type="checkbox" 
+                                name={ x.taskName } 
+                                value={ x.taskName } 
+                                onChange={ handleCheck }
+                                style={ x.isST ? {marginLeft: "50px"} : null }
+                            />
+                            <label className="task-label">{ x.taskName }</label>
+                            <br />
+                        </div>
+                    ))}
                 </div>
-            </form>
-            
-            {/* Fight me. */}
-            <br /><br />
+
+                <br />
+
+                <form onSubmit={ handleSubmit } className="list-footer">
+                    <input 
+                        id="task_input"
+                        type="text" 
+                        name="item" 
+                        placeholder="Enter a new task..."
+                        value={ item } 
+                        onChange={ (e) => setItem(e.target.value) } 
+                        autoComplete="off"
+                    />
+                    
+                    <div>
+                        <button 
+                            id="task-add" 
+                            onClick={addTask}
+                            type="submit"
+                        >Add</button>
+
+                        <button id="task-clear-done" onClick={ clearDone }>Clear Done</button>
+                        <button id="task-clear-all" onClick={ clearAll }>Clear All</button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }
