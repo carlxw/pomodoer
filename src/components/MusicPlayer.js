@@ -3,6 +3,7 @@ import { IconContext } from "react-icons";
 import { MdPause, MdPlayArrow, MdVolumeUp } from "react-icons/md";
 
 import "../css/Player.css";
+import image from "../spotify-logo.png";
 
 const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive }) => {
     const [volume, setVolume] = useState(25);
@@ -34,7 +35,7 @@ const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive
                         <div className="cls" />
 
                         <div className="media-controls">
-                            <div className="buttons">
+                            <div className="buttons" style={{ float: "left" }}>
                                 <button id="change-track" className="btn-spotify" onClick={() => { player.previousTrack() }} >
                                     &lt;&lt;
                                 </button>
@@ -69,7 +70,11 @@ const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive
                                     </IconContext.Provider>
                                 </label>
                             </div>
+
+                            <div className="cls" />
                         </div>
+
+                        {/* <img id="spotify-icon" src={ image } style={{ height: "3rem" }} /> */}
                     </div>
                 </div>
             </div>

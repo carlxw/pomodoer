@@ -134,13 +134,13 @@ const List = ({ title, items }) => {
                 
                 <div>
                     <button 
-                        id="task_add" 
+                        id="task-add" 
                         onClick={addTask}
                         type="submit"
                     >Add</button>
 
-                    <button onClick={ clearDone }>Clear Done</button>
-                    <button onClick={ clearAll }>Clear All</button>
+                    <button id="task-clear-done" onClick={ clearDone }>Clear Done</button>
+                    <button id="task-clear-all" onClick={ clearAll }>Clear All</button>
                 </div>
             </form>
             

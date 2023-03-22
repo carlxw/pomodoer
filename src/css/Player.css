@@ -1,5 +1,6 @@
 .spotify-main-wrapper {
     padding: 3.5rem 3rem;
+    position: relative;
 }
 
 /* Cover Art */
@@ -34,7 +35,7 @@
     font-size: 1.5rem;
     margin-top: 0.5rem;
     height: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
 }
 
 #play-pause {
@@ -52,8 +53,18 @@
 
 .volume-slider {
     height: 2rem;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 } .volume-slider > input[type="range"]{
     width: 7rem;
     margin-right: 1rem;
+}
+
+#spotify-icon { 
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+}
+
+.buttons {
+    margin-right: 4rem;
 }

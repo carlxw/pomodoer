@@ -68,7 +68,7 @@ const Pomodoro = () => {
 
             <div className="timer-btn-presets">
                 <div className="btn-grp">
-                    <button onClick={ () => {setTime(config.study_time_s); studyOn()} }>{ secToString(config.study_time_s) }</button>
+                    <button id="study-timer" onClick={ () => {setTime(config.study_time_s); studyOn()} }>{ secToString(config.study_time_s) }</button>
                     <p id="timer-label" >study session</p>
                 </div>
 
@@ -78,12 +78,12 @@ const Pomodoro = () => {
                 </div> */}
                 
                 <div className="btn-grp">
-                    <button onClick={ () => setTime(config.shortbreak_time_s) }>{ secToString(config.shortbreak_time_s) }</button>
+                    <button id="break-timer-short" onClick={ () => setTime(config.shortbreak_time_s) }>{ secToString(config.shortbreak_time_s) }</button>
                     <p id="timer-label" >short break</p>
                 </div>
                 
                 <div className="btn-grp">
-                    <button onClick={ () => setTime(config.longbreak_time_s) }>{ secToString(config.longbreak_time_s) }</button>
+                    <button id="break-timer-long" onClick={ () => setTime(config.longbreak_time_s) }>{ secToString(config.longbreak_time_s) }</button>
                     <p id="timer-label" >long break</p>
                 </div>
             </div>

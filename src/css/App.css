@@ -84,9 +84,6 @@ h1 {
 button {
     padding: 0.3rem 0.5rem;
 }
-button:hover { 
-    cursor: pointer;
-}
 
 a:link {
     text-decoration: none;
