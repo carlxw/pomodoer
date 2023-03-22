@@ -1,7 +1,7 @@
 import React from "react";
 
 import "../css/Youre_Connected.css";
-import image from "../spotify-logo.png";
+import image from "../resources/spotify-logo.png";
 
 function Login() {
     return (

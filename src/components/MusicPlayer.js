@@ -3,7 +3,7 @@ import { IconContext } from "react-icons";
 import { MdPause, MdPlayArrow, MdVolumeUp } from "react-icons/md";
 
 import "../css/Player.css";
-import image from "../spotify-logo.png";
+import image from "../resources/spotify-logo.png";
 
 const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive }) => {
     const [volume, setVolume] = useState(25);
