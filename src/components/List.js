@@ -2,8 +2,6 @@ import { useState } from "react";
 import { arrRemove } from "../util/ArrayUtil";
 import Task from "../util/Task";
 
-import "../css/Todo.css";
-
 const List = ({ title, items }) => {
     // Idea: Display list = incomplete tasks + complete tasks array merge
     let [tasks, updateTasks] = useState(items.map(x => new Task(x.name, x.isST, x.isDone)));

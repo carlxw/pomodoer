@@ -7,13 +7,8 @@
 
 * {
     margin: 0;
-    font-family: "Rubik";
+    padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
-}
-
-.react-icons {
-    vertical-align: middle;
 }
 
 .todo {
@@ -21,16 +16,6 @@
 
     width: 50vw;
     height: 100vh;
-    top: 0;
-    left: 0;
-    float: left;
-    padding: 5%;
-    margin: 0;
-
-    color: white;
-
-    /* Set to scroll later */
-    overflow-y: scroll;
 }
 
 .music {
@@ -38,11 +23,6 @@
     
     width: 50vw;
     height: 50vh;
-    top: 0;
-    left: 0;
-    float: right;
-    
-    padding: 0.5%;
 }
 
 .pomodoro {
@@ -50,74 +30,8 @@
     
     width: 50vw;
     height: 50vh;
-    top: 0;
-    left: 0;
-    float: right;
-    
-    text-align: center;
-    padding: 2.5%;
-    margin: 0;
-    color: white;
 }
 
 .cls {
 	clear: both;
-}
-
-h1 {
-    margin: 0;
-    padding: 0;
-    font-size: 3rem;
-} h2 {
-    margin: 0;
-    padding: 0;
-    font-size: 2.5rem;
-} p {
-    font-size: 2rem;
-    /* margin: 0;
-    padding: 0;
-    width: min-content; */
-} label.task-label {
-    font-size: 1.5rem;
-}
-
-button {
-    padding: 0.3rem 0.5rem;
-}
-
-a:link {
-    text-decoration: none;
-    color: black;
-} a:visited {
-    text-decoration: none;
-    color: black;
-}
-
-@media screen and (max-width: 900px) {
-    #container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    } 
-    
-    body {
-        scroll-snap-type: mandatory;
-    }
-
-    html {
-        scroll-behavior: smooth;
-        overflow-y: auto;
-    }
-
-    .pomodoro,
-    .music,
-    .todo {
-        height: 100vh;
-        width: 100vw;
-        scroll-snap-align: start;
-        overflow-y: hidden;
-    } .todo {
-        /* Override height */
-        height: min-content;
-    }
 }

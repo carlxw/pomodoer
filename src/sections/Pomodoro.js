@@ -5,8 +5,6 @@ import { timerActive, timerOn, timerOff } from "../util/TimerControl";
 import { studyOn } from "../util/StudyControl";
 import { Howl } from "howler";
 import mp3 from "../alarm.mp3"
-
-import "../css/Timer.css";
 import config from "../config.json";
 
 const Pomodoro = () => {

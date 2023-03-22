@@ -1,6 +1,5 @@
 import "./css/App.css";
 import "./css/Scrollbar.css";
-import "./css/Hover.css";
 
 import Todo from "./sections/Todo";
 import Pomodoro from "./sections/Pomodoro";

@@ -1,5 +1,3 @@
-import "../css/Youre_Connected.css";
-
 import config from "../config.json";
 
 const ConnectPlayer = () => {
