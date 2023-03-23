@@ -1,5 +1,5 @@
 {
-  "name": "web-playback-sdk-sample-app",
+  "name": "pomodoro-timer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
