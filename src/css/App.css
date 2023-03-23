@@ -12,7 +12,7 @@
 }
 
 html {
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .app-container {
@@ -32,7 +32,7 @@ html {
     flex-direction: column;
     gap: 3rem;
 
-    padding: 2.5rem;
+    padding: 5rem;
 
     color: white
 }
@@ -43,6 +43,14 @@ html {
 
 .pomodoro {
     background-color: rgb(86, 86, 86);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4vh;
+
+    padding: 5rem;
 }
 
 .music, .pomodoro {

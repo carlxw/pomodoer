@@ -2,8 +2,9 @@ import "./css/Reset.css";
 import "./css/App.css";
 import "./css/Scrollbar.css";
 import "./css/MediaQuery.css";
-import "./css/Typography.css";
+import "./css/Elements.css";
 import "./css/Hover.css";
+import "./css/Pomodoro.css";
 
 import "./css/List.css";
 

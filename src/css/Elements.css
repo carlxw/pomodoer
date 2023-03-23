@@ -13,3 +13,9 @@ h1 {
 } p, a, button, label, input {
     font-size: 1.5rem;
 }
+
+button {
+    border-radius: 1rem;
+    border: none;
+    padding: 0.5rem;
+}

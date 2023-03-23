@@ -1,0 +1,32 @@
+/* Header and timer and button label colour */
+#session-counter, #timer-countdown, #timer-label {
+    color: white;
+}
+
+/* Timer configurations */
+.timer-btn-presets {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    text-align: center;
+} .btn-grp {
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+} .btn-grp > button {
+    padding: 0.5rem;
+}
+
+/* Start, clear buttons */
+.timer-ctrl {
+    display: flex;
+    gap: 2rem;
+} .timer-ctrl > button {
+    padding: 0.5rem;
+}
+
+/* Start-Pause button */
+#timer-start-pause {
+    width: 7.5rem;
+}

@@ -61,33 +61,33 @@ const Pomodoro = () => {
 
     return (
         <div className="pomodoro">
-            <h2 className="session-counter">{ `Study session no. ${studyNo}` }</h2>
+            <h1 id="session-counter">{ `Study session no. ${studyNo}` }</h1>
             { timerActive ? <Countdown timeObj={ {time, setTime} } studyObj={ {studyNo, setStudyNo} } /> : <h1 id="timer-countdown">{ secToString(time) }</h1> }
 
             <div className="timer-btn-presets">
                 <div className="btn-grp">
                     <button id="study-timer" onClick={ () => {setTime(config.study_time_s); studyOn()} }>{ secToString(config.study_time_s) }</button>
-                    <p id="timer-label" >study session</p>
+                    <label id="timer-label" >study session</label>
                 </div>
 
                 {/* <div className="btn-grp">
                     <button onClick={ () => {setTime(3); studyOn()} }>TEST</button>
-                    <p>test</p>
+                    <label>test</label>
                 </div> */}
                 
                 <div className="btn-grp">
                     <button id="break-timer-short" onClick={ () => setTime(config.shortbreak_time_s) }>{ secToString(config.shortbreak_time_s) }</button>
-                    <p id="timer-label" >short break</p>
+                    <label id="timer-label" >short break</label>
                 </div>
                 
                 <div className="btn-grp">
                     <button id="break-timer-long" onClick={ () => setTime(config.longbreak_time_s) }>{ secToString(config.longbreak_time_s) }</button>
-                    <p id="timer-label" >long break</p>
+                    <label id="timer-label" >long break</label>
                 </div>
             </div>
 
             <div className="timer-ctrl">
-                <button onClick={() => {
+                <button id="timer-start-pause" onClick={() => {
                     if (timerActive) pauseTimer();
                     else startTimer();
                 }}>
