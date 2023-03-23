@@ -81,48 +81,45 @@ const List = ({ title, items }) => {
     }
 
     return (
-        <div className="task_list">
+        <div className="list">
             <h1 className="list-header">{ title }</h1>
             
             <div>
-                <div>
-                    {tasks.map((x) => (
-                        <div key={ x.taskName }>
-                            <input 
-                                className="task-checkbox" 
-                                defaultChecked={ false }
-                                type="checkbox" 
-                                name={ x.taskName } 
-                                value={ x.taskName } 
-                                onChange={ handleCheck }
-                                style={ x.isST ? {marginLeft: "50px"} : null }
-                            />
-                            <label className="task-label">{ x.taskName }</label>
+                {tasks.map((x) => (
+                    <div key={ x.taskName }>
+                        <input 
+                            className="task-checkbox" 
+                            defaultChecked={ false }
+                            type="checkbox" 
+                            name={ x.taskName } 
+                            value={ x.taskName } 
+                            onChange={ handleCheck }
+                            style={ x.isST ? {marginLeft: "50px"} : null }
+                        />
+                        <label className="task-label">{ x.taskName }</label>
 
-                        </div>
-                    ))}
-                    {tasksDone.map((x) => (
-                        <div key={ x.taskName }>
-                            <input 
-                                className="task-checkbox" 
-                                defaultChecked={ true }
-                                type="checkbox" 
-                                name={ x.taskName } 
-                                value={ x.taskName } 
-                                onChange={ handleCheck }
-                                style={ x.isST ? {marginLeft: "50px"} : null }
-                            />
-                            <label className="task-label">{ x.taskName }</label>
-                            <br />
-                        </div>
-                    ))}
-                </div>
+                    </div>
+                ))}
+                {tasksDone.map((x) => (
+                    <div key={ x.taskName }>
+                        <input 
+                            className="task-checkbox" 
+                            defaultChecked={ true }
+                            type="checkbox" 
+                            name={ x.taskName } 
+                            value={ x.taskName } 
+                            onChange={ handleCheck }
+                            style={ x.isST ? {marginLeft: "50px"} : null }
+                        />
+                        <label className="task-label">{ x.taskName }</label>
+                    </div>
+                ))}
+            </div>
 
-                <br />
-
+            <div>
                 <form onSubmit={ handleSubmit } className="list-footer">
                     <input 
-                        id="task_input"
+                        id="list-input"
                         type="text" 
                         name="item" 
                         placeholder="Enter a new task..."
@@ -131,15 +128,15 @@ const List = ({ title, items }) => {
                         autoComplete="off"
                     />
                     
-                    <div>
+                    <div id="list-buttons">
                         <button 
-                            id="task-add" 
+                            id="list-add" 
                             onClick={addTask}
                             type="submit"
                         >Add</button>
 
-                        <button id="task-clear-done" onClick={ clearDone }>Clear Done</button>
-                        <button id="task-clear-all" onClick={ clearAll }>Clear All</button>
+                        <button id="list-clear-done" onClick={ clearDone }>Clear Done</button>
+                        <button id="list-clear-all" onClick={ clearAll }>Clear All</button>
                     </div>
                 </form>
             </div>

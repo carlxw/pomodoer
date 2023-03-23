@@ -1,0 +1,36 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Applies strikethrough when checked */
+input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+}
+
+/* Style input box */
+#list-input, #list-input:focus {
+    outline: none;
+    background: transparent;
+    font-style: italic;
+    color: grey;
+    opacity: 0.75;
+    width: 25rem;
+}
+
+/* Create margins for list items */
+.list > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+} .task-checkbox, .task-label {
+    margin-left: 2rem;
+}
+
+/* Style buttons */
+#list-buttons {
+    display: flex; 
+    gap: 1rem;
+    padding: 1.5rem 0 0 0;
+}

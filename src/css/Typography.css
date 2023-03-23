@@ -1,0 +1,15 @@
+h1, h2, h3, h4, h5, h6, p, input, label, a {
+    font-family: 'Rubik', sans-serif;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 3rem;
+} h2 {
+    font-size: 2rem;
+} p, a, button, label, input {
+    font-size: 1.5rem;
+}
