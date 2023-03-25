@@ -7,6 +7,7 @@
 /* Applies strikethrough when checked */
 input[type="checkbox"]:checked + label {
     text-decoration: line-through;
+    color: grey;
 }
 
 /* Style input box */

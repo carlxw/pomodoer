@@ -8,15 +8,19 @@ const ConnectPlayer = () => {
         <div className="player-connected">
             <h1 id="connected">You're connected!</h1>
 
-            <br />
+            {/* Fight me */}
+            <br /> 
 
-            <p style={{ margin: 0 }}>To start the player, click on the
-            { 
-                <svg id="connect-icon" >
+            <p> 
+                To start the player, click on the 
+                
+                <svg id="connect-icon">
                     <path d={ iconData[0] } />
                     <path d={ iconData[1] } />
-                </svg>   
-            } icon and select "{ config.sdk_player_name }".</p>
+                </svg>  
+                
+                icon and select "{ config.sdk_player_name }".
+            </p>
             <p>Once that's done, start listening to any playlist or album!</p>
         </div>
     );

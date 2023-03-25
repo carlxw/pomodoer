@@ -5,6 +5,9 @@ import "./css/MediaQuery.css";
 import "./css/Elements.css";
 import "./css/Hover.css";
 import "./css/Pomodoro.css";
+import "./css/Spotify-Login.css";
+import "./css/Connect-Player.css";
+import "./css/Music-Player.css";
 
 import "./css/List.css";
 

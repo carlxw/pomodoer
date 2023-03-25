@@ -37,10 +37,6 @@ html {
     color: white
 }
 
-.music {
-    background-color: rgb(255, 255, 255);
-}
-
 .pomodoro {
     background-color: rgb(86, 86, 86);
 
@@ -51,6 +47,10 @@ html {
     gap: 4vh;
 
     padding: 5rem;
+}
+
+.music {
+    background-color: rgb(255, 255, 255);
 }
 
 .music, .pomodoro {

@@ -11,4 +11,8 @@
     html {
         overflow-y: scroll
     }
+
+    /* html {
+        display: none;
+    } */
 }

@@ -1,0 +1,5 @@
+/* Album art */
+.now-playing__cover {
+    border-radius: 1rem;
+    border: 0.25rem white solid;
+}

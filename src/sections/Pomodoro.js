@@ -4,7 +4,7 @@ import { secToString } from "../util/secToString";
 import { timerActive, timerOn, timerOff } from "../util/TimerControl";
 import { studyOn } from "../util/StudyControl";
 import { Howl } from "howler";
-import mp3 from "../alarm.mp3"
+import mp3 from "../resources/alarm.mp3"
 import config from "../config.json";
 
 const Pomodoro = () => {
