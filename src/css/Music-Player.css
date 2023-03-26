@@ -1,5 +1,88 @@
+.spotify-main-wrapper {
+    height: 50vh;
+    width: 50vw;
+    gap: 2.5vw;
+    padding: 5%;
+
+    /* Margin */
+    margin-left: 2vw;
+}
+
+/* Controls long text */
+.title-overflow {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 25vw;
+    padding: 0.25rem 0;
+}
+
+/* Class */
+.music-flex {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.music-column-flex {
+    display: flex;
+    flex-direction: column;
+}
+
 /* Album art */
 .now-playing__cover {
     border-radius: 1rem;
     border: 0.25rem white solid;
+    height: 80%;
+    width: auto;
+}
+
+.song-info {
+    font-family: "Rubik";
+    gap: 0.25rem;
+}
+
+/* Track name */
+.now-playing__name {
+    font-size: 250%;
+    font-weight: bold;
+}
+
+/* Artist name */
+.now-playing__artist {
+    font-size: 150%;
+}
+
+/* Margin between track name and media controls */
+.now-playing__side {
+    gap: 2rem;
+}
+
+/* Align media controls */
+.media-controls {
+    gap: 2vw;
+}
+
+/* Player controls play/pause, skip/prev track */
+.player-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Circular buttons */
+#play-pause {
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+} 
+
+/* Fix weird icon alignment */
+#play-pause > * {
+    margin-top: 0.5rem;
+}
+
+/* Volume slider margin with icon */
+.volume-slider > input {
+    margin-right: 0.5rem;
 }
