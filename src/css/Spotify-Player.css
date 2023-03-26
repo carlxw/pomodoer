@@ -12,7 +12,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    width: 80%;
+    width: 20rem;
     padding: 0.25rem 0;
 }
 
@@ -33,7 +33,6 @@
     border-radius: 1rem;
     border: 0.25rem white solid;
     height: 80%;
-    width: 80%;
     aspect-ratio: 1/1;
 }
 
@@ -60,6 +59,7 @@
 
 /* Align media controls */
 .media-controls {
+    flex-direction: column;
     gap: 2vw;
 }
 
@@ -91,5 +91,5 @@
 .volume-slider > input {
     margin-right: 0.5rem;
 } input[type="range"] {
-    width: 70%
+    width: 15vw;
 }

@@ -28,43 +28,44 @@ const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive
                         <div className="now-playing__artist title-overflow">{ current_track.artists[0].name }</div>
                     </div>
 
-                    <div className="media-controls music-flex">
-                        <div className="player-buttons">
-                            <button id="change-track" className="btn-spotify" onClick={() => { player.previousTrack() }} >
-                                &lt;&lt;
-                            </button>
+                    <div>
+                        <div className="media-controls music-flex">
+                            <div className="player-buttons">
+                                <button id="change-track" className="btn-spotify" onClick={() => { player.previousTrack() }} >
+                                    &lt;&lt;
+                                </button>
 
-                            <button id="play-pause" className="btn-spotify" onClick={() => { player.togglePlay() }} >
-                                <IconContext.Provider value={{ size: "2rem", verticalAlign: "middle" }}>
-                                    { is_paused ? <MdPlayArrow className="react-icons"/> : <MdPause className="react-icons"/> }
-                                </IconContext.Provider>
-                            </button>
+                                <button id="play-pause" className="btn-spotify" onClick={() => { player.togglePlay() }} >
+                                    <IconContext.Provider value={{ size: "2rem", verticalAlign: "middle" }}>
+                                        { is_paused ? <MdPlayArrow className="react-icons"/> : <MdPause className="react-icons"/> }
+                                    </IconContext.Provider>
+                                </button>
 
-                            <button id="change-track" className="btn-spotify" onClick={() => { player.nextTrack() }} >
-                                &gt;&gt;
-                            </button>
+                                <button id="change-track" className="btn-spotify" onClick={() => { player.nextTrack() }} >
+                                    &gt;&gt;
+                                </button>
 
-                            {/* <button className="btn-spotify" onClick={handleDisconnect} >
-                                Disconnect
-                            </button> */}
+                                {/* <button className="btn-spotify" onClick={handleDisconnect} >
+                                    Disconnect
+                                </button> */}
+                            </div>
+                            
+                            <div className="volume-slider music-flex">
+                                <input 
+                                    id="volume_slider" 
+                                    type="range" 
+                                    min="0" max="100" 
+                                    value={ volume } 
+                                    onChange={ handleVolumeChange }
+                                    step="1"
+                                />
+                                <label>
+                                    <IconContext.Provider value={{ size: "1.5rem", verticalAlign: "middle" }}>
+                                        <MdVolumeUp />
+                                    </IconContext.Provider>
+                                </label>
+                            </div>
                         </div>
-                        
-                        <div className="volume-slider music-flex">
-                            <input 
-                                id="volume_slider" 
-                                type="range" 
-                                min="0" max="100" 
-                                value={ volume } 
-                                onChange={ handleVolumeChange }
-                                step="1"
-                            />
-                            <label>
-                                <IconContext.Provider value={{ size: "1.5rem", verticalAlign: "middle" }}>
-                                    <MdVolumeUp />
-                                </IconContext.Provider>
-                            </label>
-                        </div>
-
                     </div>
 
                     {/* <img id="spotify-icon" src={ image } style={{ height: "3rem" }} /> */}

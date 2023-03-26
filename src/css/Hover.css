@@ -1,3 +1,26 @@
 button:hover {
     cursor: pointer;
 }
+
+#list-buttons > button:hover, .btn-grp > button:hover {
+    color: white;
+} 
+
+/* Todo and timer buttons */
+#list-add:hover {
+    background-color: rgb(0, 140, 255);
+} #list-clear-done:hover {
+    background-color: rgb(80, 164, 23);
+} #list-clear-all:hover {
+    background-color: rgb(216, 43, 193)
+}
+
+/* Timer preset buttons */
+.btn-grp > button:hover {
+    background-color: rgb(36, 148, 111);
+}
+
+/* Spotify login button */
+#spotify-login:hover {
+    background-color: rgb(18, 233, 47);
+}

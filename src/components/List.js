@@ -131,7 +131,7 @@ const List = ({ title, items }) => {
                     <div id="list-buttons">
                         <button 
                             id="list-add" 
-                            onClick={addTask}
+                            onClick={ addTask }
                             type="submit"
                         >Add</button>
 
