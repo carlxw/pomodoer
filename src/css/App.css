@@ -22,6 +22,11 @@ html {
     flex-direction: row;
 }
 
+.music, .pomodoro {
+    width: 50vw;
+    height: 50vh;
+}
+
 .todo {
     background-color: #222222;
 
@@ -48,16 +53,11 @@ html {
     align-items: center;
     gap: 4vh;
 
-    padding: 5rem;
+    padding: 10rem;
 }
 
 .music {
     background-color: rgb(255, 255, 255);
-}
-
-.music, .pomodoro {
-    width: 50vw;
-    height: 50vh;
 }
 
 .cls {
