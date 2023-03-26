@@ -9,6 +9,7 @@ import "./css/Spotify-Login.css";
 import "./css/Connect-Player.css";
 import "./css/Spotify-Player.css";
 import "./css/List.css";
+import "./css/Animation.css";
 
 import Todo from "./sections/Todo";
 import Pomodoro from "./sections/Pomodoro";
