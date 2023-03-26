@@ -18,7 +18,7 @@
     align-items: center;
     text-align: center;
 } .btn-grp {
-    width: 10rem;
+    width: 7.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
