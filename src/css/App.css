@@ -15,6 +15,8 @@ html {
     overflow: hidden;
 }
 
+/* ============================================================== */
+
 .app-container {
     height: 100vh;
     width: 100vw;
@@ -23,8 +25,11 @@ html {
 }
 
 .music, .pomodoro {
-    width: 50vw;
-    height: 50vh;
+    width: 48vw;
+    height: 47.5vh;
+    background-color: inherit;
+    border-radius: 1rem;
+    margin: 1rem;
 }
 
 .todo {
@@ -34,16 +39,14 @@ html {
     height: 100vh;
 }
 
-.pomodoro {
-    background-color: rgb(86, 86, 86);
-}
-
 .music {
-    background-color: var(--spotify-black);
     color: white;
     fill: white;
 }
 
-.cls {
-	clear: both;
+.app-wrapper-right {
+    height: 100vh;
+    width: 50vw;
+    
+    background-color: rgba(0, 0, 0, 0.75);
 }
