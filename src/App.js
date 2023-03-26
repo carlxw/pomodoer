@@ -17,13 +17,16 @@ import Music from "./sections/Music";
 import config from "./config.json";
 
 function App() {
+    // Choose a random background iamge
+    const image = Math.floor(Math.random()*config.images.length);
+    console.log(image);
     return (
         <div className="app">
             <div className="app-container">
                 <div className="app-wrapper-left">
                     <Todo />
                 </div>
-                <div className="app-wrapper-right" style={{ backgroundImage: `url(${config.images[1]})` }}>
+                <div className="app-wrapper-right" style={{ backgroundImage: `url(${config.images[image]})` }}>
                     <Pomodoro />
                     <Music />
                 </div>

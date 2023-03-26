@@ -1,6 +1,5 @@
 .spotify-main-wrapper {
-    height: 50vh;
-    width: 50vw;
+    height: 45vh;
     gap: 2.5vw;
     padding: 5%;
 
@@ -34,7 +33,8 @@
     border-radius: 1rem;
     border: 0.25rem white solid;
     height: 80%;
-    width: auto;
+    width: 80%;
+    aspect-ratio: 1/1;
 }
 
 .song-info {

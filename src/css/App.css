@@ -49,4 +49,9 @@ html {
     width: 50vw;
     
     background-color: rgba(0, 0, 0, 0.75);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
 }

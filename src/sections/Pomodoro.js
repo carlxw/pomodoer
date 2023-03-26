@@ -36,12 +36,8 @@ const Pomodoro = () => {
     }
 
     const pauseTimer = () => {
-        if (timerActive) {
-            timerOff();
-            setTimerText("Start");
-        } else {
-            alert("Timer not active.");
-        }
+        timerOff();
+        setTimerText("Start");
     }
 
     // Alert the user that the timer is up 
