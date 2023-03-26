@@ -1,3 +1,12 @@
+.pomodoro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4vh;
+    padding: 10rem;
+}
+
 /* Header and timer and button label colour */
 #session-counter, #timer-countdown, #timer-label {
     color: white;

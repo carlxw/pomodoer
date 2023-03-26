@@ -1,3 +1,15 @@
+.todo {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    padding: 5rem;
+
+    overflow-y: scroll;
+
+    color: white
+}
+
 .list {
     display: flex;
     flex-direction: column;

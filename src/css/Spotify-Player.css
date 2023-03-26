@@ -68,6 +68,11 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+} .player-buttons > button {
+    background-color: white;
+} #change-track {
+    background-color: transparent;
+    color: inherit;
 }
 
 /* Circular buttons */

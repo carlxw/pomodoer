@@ -32,32 +32,16 @@ html {
 
     width: 50vw;
     height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-
-    padding: 5rem;
-
-    overflow-y: scroll;
-
-    color: white
 }
 
 .pomodoro {
     background-color: rgb(86, 86, 86);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 4vh;
-
-    padding: 10rem;
 }
 
 .music {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--spotify-black);
+    color: white;
+    fill: white;
 }
 
 .cls {

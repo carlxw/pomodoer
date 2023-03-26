@@ -7,7 +7,7 @@ import "./css/Hover.css";
 import "./css/Pomodoro.css";
 import "./css/Spotify-Login.css";
 import "./css/Connect-Player.css";
-import "./css/Music-Player.css";
+import "./css/Spotify-Player.css";
 
 import "./css/List.css";
 
