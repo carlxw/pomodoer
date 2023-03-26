@@ -1,5 +1,5 @@
 @media only screen and (max-width: 1500px) {
-    .app-container {
+    /* .app-container {
         flex-direction: column;
     }
 
@@ -10,7 +10,7 @@
 
     html {
         overflow-y: scroll
-    }
+    } */
 
     /* html {
         display: none;

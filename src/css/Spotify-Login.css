@@ -10,6 +10,11 @@
     gap: 0rem;
 }
 
+/* Image */
+.login > img {
+    height: 50%;
+}
+
 /* Login button */
 #spotify-login {
     background-color: var(--spotify-green);
@@ -23,9 +28,9 @@
 
 /* Font sizes and margins */
 .spotify-info > h1 {
-    font-size: 4rem;
+    font-size: 250%;
     margin: 0 0 1.5rem 0;
 } .spotify-info > p {
-    font-size: 1.5rem;
+    font-size: 100%rem;
     margin: 0 0 1rem 0;
 }

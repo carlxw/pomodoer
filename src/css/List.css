@@ -17,7 +17,7 @@ input[type="checkbox"]:checked + label {
     font-style: italic;
     color: grey;
     opacity: 0.75;
-    width: 40vw;
+    width: 35vw;
 }
 
 /* Create margins for list items */
