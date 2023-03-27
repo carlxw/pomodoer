@@ -28,9 +28,9 @@ const Countdown = ({ timeObj, studyObj }) => {
     }, [timeObj, cd, studyObj]);
 
     return (
-        <div className="countdown">
+        <>
             <h1 id="timer-countdown">{ secToString(timeObj.time) }</h1>
-        </div>
+        </>
     );
 }
 

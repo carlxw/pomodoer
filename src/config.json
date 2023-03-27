@@ -1,20 +1,20 @@
 {
     "enable_fullscreen": false,
 
-    "WEBPAGE_NAME======================": null,
+    "WEBPAGE_NAME ======================": null,
     "webpage_name": "Pomodoro Timer",
     "sdk_player_name": "Pomodoro Timer",
 
-    "TIMER_PRESETS=====================": null,
+    "TIMER_PRESETS =====================": null,
     "study_time_s": 1500,
     "shortbreak_time_s": 300,
     "longbreak_time_s": 1200,
 
-    "LIST_HEADERS======================": null,
+    "LIST_HEADERS ======================": null,
     "todo_header": "Session Goals",
     "break_header": "Break Goals",
 
-    "DEFAULT_LIST======================": null,
+    "DEFAULT_LIST ======================": null,
     "todo_default": [
         {"name": "Record what", "isST": false, "isDone": false}, 
         {"name": "I need", "isST": false, "isDone": false}, 
@@ -24,5 +24,15 @@
         {"name": "I'll do", "isST": false, "isDone": false}, 
         {"name": "these things", "isST": false, "isDone": false}, 
         {"name": "on my break!", "isST": false, "isDone": false}
+    ],
+
+    "BACKGROUND_IMAGES =================": null,
+    "images": [
+        "https://images.unsplash.com/photo-1580895456895-cfdf02e4c23f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2l0eSUyMG5pZ2h0JTIwbGlnaHRzfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+        "http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcRODAepevJESvKmoYWQ8YAJJQO0j_a_ZgVaTFAobP3lXgETKX-kTOowNQH9_zxyUGC-aLS53LuzzNt0qys8gO4",
+        "https://images.pexels.com/photos/1496372/pexels-photo-1496372.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.hdqwalls.com/wallpapers/the-valley-minimal-4k-9y.jpg",
+        "https://images.squarespace-cdn.com/content/5fe4caeadae61a2f19719512/1609790786020-FFQJC80X3JPPA0Q7VVT1/Wallpaper+engine+4k.png?content-type=image%2Fpng", 
+        "https://steamuserimages-a.akamaihd.net/ugc/1823390356035360069/93FA03F345B4A9D0399C553092CC56F65DB09C80/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
     ]
 }

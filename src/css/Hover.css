@@ -1,37 +1,31 @@
-button:hover { 
+button:hover {
     cursor: pointer;
 }
 
-button:active:not(#play-pause) {
-    box-shadow:  7px 6px 14px 1px rgba(0, 0, 0, 0.24);
-    transform: translateY(2px);
+#list-buttons > button:hover, .btn-grp > button:hover, .timer-ctrl > button:hover {
+    color: white;
+} 
+
+/* Todo and timer buttons */
+#list-add:hover {
+    background-color: rgb(0, 140, 255);
+} #list-clear-done:hover {
+    background-color: rgb(80, 164, 23);
+} #list-clear-all:hover {
+    background-color: rgb(216, 43, 193)
 }
 
-/* Task buttons */
-#task-add:hover {
-    background-color: rgb(240, 62, 39);
-    color: white;
-} #task-clear-done:hover {
-    background-color: rgb(11, 170, 24);
-    color: white
-} #task-clear-all:hover {
-    background-color: rgb(192, 192, 36);
-    color: white;
+/* Timer preset buttons */
+.btn-grp > button:hover {
+    background-color: rgb(36, 148, 111);
 }
 
-/* Timer Duration */
-#study-timer:hover {
-    background-color: rgb(0, 132, 255);
-    color: white
-} #break-timer-short:hover {
-    background-color: rgb(141, 80, 211);
-    color: white
-} #break-timer-long:hover {
-    background-color: rgb(207, 113, 24);
-    color: white;
+/* Timer start and stop */
+.timer-ctrl > button:hover {
+    background-color: rgb(223, 176, 22)
 }
 
-/* Spotify Login */
+/* Spotify login button */
 #spotify-login:hover {
-    background-color: rgb(12, 206, 60);
+    background-color: rgb(18, 233, 47);
 }

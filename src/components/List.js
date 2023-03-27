@@ -2,8 +2,6 @@ import { useState } from "react";
 import { arrRemove } from "../util/ArrayUtil";
 import Task from "../util/Task";
 
-import "../css/Todo.css";
-
 const List = ({ title, items }) => {
     // Idea: Display list = incomplete tasks + complete tasks array merge
     let [tasks, updateTasks] = useState(items.map(x => new Task(x.name, x.isST, x.isDone)));
@@ -83,7 +81,7 @@ const List = ({ title, items }) => {
     }
 
     return (
-        <div className="task_list">
+        <div className="list">
             <h1 className="list-header">{ title }</h1>
             
             <div>
@@ -114,38 +112,34 @@ const List = ({ title, items }) => {
                             style={ x.isST ? {marginLeft: "50px"} : null }
                         />
                         <label className="task-label">{ x.taskName }</label>
-                        <br />
                     </div>
                 ))}
             </div>
 
-            <br />
+            <div>
+                <form onSubmit={ handleSubmit } className="list-footer">
+                    <input 
+                        id="list-input"
+                        type="text" 
+                        name="item" 
+                        placeholder="Enter a new task..."
+                        value={ item } 
+                        onChange={ (e) => setItem(e.target.value) } 
+                        autoComplete="off"
+                    />
+                    
+                    <div id="list-buttons">
+                        <button 
+                            id="list-add" 
+                            onClick={ addTask }
+                            type="submit"
+                        >Add</button>
 
-            <form onSubmit={ handleSubmit } className="list-footer">
-                <input 
-                    id="task_input"
-                    type="text" 
-                    name="item" 
-                    placeholder="Enter a new task..."
-                    value={ item } 
-                    onChange={ (e) => setItem(e.target.value) } 
-                    autoComplete="off"
-                />
-                
-                <div>
-                    <button 
-                        id="task-add" 
-                        onClick={addTask}
-                        type="submit"
-                    >Add</button>
-
-                    <button id="task-clear-done" onClick={ clearDone }>Clear Done</button>
-                    <button id="task-clear-all" onClick={ clearAll }>Clear All</button>
-                </div>
-            </form>
-            
-            {/* Fight me. */}
-            <br /><br />
+                        <button id="list-clear-done" onClick={ clearDone }>Clear Done</button>
+                        <button id="list-clear-all" onClick={ clearAll }>Clear All</button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }
