@@ -7,12 +7,30 @@
     }
 }
 
+/* Hide everything */
+.todo, .pomodoro, .music {
+    opacity: 0;
+}
+
 .todo {
-    animation: fadein 2s;
+    animation-name: fadein;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .pomodoro {
     animation-name: fadein;
     animation-duration: 2s;
-    animation-delay: 2s;
+    animation-iteration-count: 1;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.music {
+    animation-name: fadein;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
 }

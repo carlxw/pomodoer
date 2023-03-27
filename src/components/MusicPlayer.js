@@ -29,7 +29,7 @@ const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive
                     </div>
 
                     <div>
-                        <div className="media-controls music-flex">
+                        <div className="media-controls">
                             <div className="player-buttons">
                                 <button id="change-track" className="btn-spotify" onClick={() => { player.previousTrack() }} >
                                     &lt;&lt;

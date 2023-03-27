@@ -1,5 +1,6 @@
 .spotify-main-wrapper {
     height: 45vh;
+    width: 45vw;
     gap: 2.5vw;
     padding: 5%;
 
@@ -12,7 +13,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    width: 20rem;
+    width: 25vw;
     padding: 0.25rem 0;
 }
 
@@ -59,7 +60,10 @@
 
 /* Align media controls */
 .media-controls {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 25vw;
     gap: 2vw;
 }
 
