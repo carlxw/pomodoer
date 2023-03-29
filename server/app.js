@@ -40,7 +40,7 @@ app.get("/auth/login", (req, res) => {
 	res.redirect("https://accounts.spotify.com/authorize/?" + auth_query_parameters.toString());
 })
 
-app.get("/auth/callback", (req, res) => {
+app.get("/auth/callback", async (req, res) => {
 	let code = req.query.code;
 
 	let authOptions = {
@@ -53,16 +53,31 @@ app.get("/auth/callback", (req, res) => {
 		headers: {
 			"Authorization": "Basic " + (Buffer.from(spotify_client_id + ":" + spotify_client_secret).toString("base64")),
 			"Content-Type" : "application/x-www-form-urlencoded"
-		},
-		json: true
+		}
+		// json: true
 	};
 
-	request.post(authOptions, function(error, response, body) {
-		if (!error && response.statusCode === 200) {
-			access_token = body.access_token;
-			res.redirect("/")
-		}
-	});
+	// request.post(authOptions.url, function(error, response, body) {
+	// 	if (!error && response.statusCode === 200) {
+	// 		access_token = body.access_token;
+	// 		res.redirect("/")
+	// 	}
+	// });
+
+	let response = await fetch(authOptions.url, {
+		method: "POST",
+	})
+
+	console.log(response);
+
+	// const data = await response.json();
+
+	// console.log(data);
+
+	// if (data.status === 200) {
+	// 	access_token = data.access_token;
+	// 	data.redirect("/");
+	// }
 })
 
 app.get("/auth/token", (req, res) => {
