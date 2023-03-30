@@ -1,11 +1,11 @@
-const express = require("express")
+const express = require("express");
 // const request = require("request");
 const dotenv = require("dotenv");
 const config = require("../src/config.json");
 
-const port = 8000
-global.access_token = ""
-dotenv.config()
+const port = 8000;
+global.access_token = "";
+dotenv.config();
 
 let app = express();
 
@@ -26,7 +26,7 @@ let generateRandomString = function (length) {
 /* ========== SPOTIFY AUTH ========== */
 
 app.get("/auth/login", (req, res) => {
-	let scope = "streaming \ user-read-email \ user-read-private"
+	let scope = "streaming \ user-read-email \ user-read-private";
 	let state = generateRandomString(16);
 
 	let auth_query_parameters = new URLSearchParams({
@@ -60,7 +60,7 @@ app.get("/auth/callback", async (req, res) => {
 	// request.post(authOptions.url, function(error, response, body) {
 	// 	if (!error && response.statusCode === 200) {
 	// 		access_token = body.access_token;
-	// 		res.redirect("/")
+	// 		res.redirect("/");
 	// 	}
 	// });
 
@@ -79,9 +79,9 @@ app.get("/auth/callback", async (req, res) => {
 });
 
 app.get("/auth/token", (req, res) => {
-  	res.json({ access_token: access_token})
+  	res.json({ access_token: access_token });
 });
 
 app.listen(port, () => {
-  	console.log(`Listening at http://localhost:${port}`)
+  	console.log(`Listening at http://localhost:${port}`);
 });
