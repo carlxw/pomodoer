@@ -3,7 +3,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const config = require("../src/config.json");
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 global.access_token = "";
 dotenv.config();
 
