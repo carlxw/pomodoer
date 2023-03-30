@@ -9,6 +9,8 @@
 /* Header and timer and button label colour */
 #session-counter, #timer-countdown, #timer-label {
     color: white;
+} #session-counter {
+    font-size: 2.5rem;
 }
 
 /* Timer configurations */
@@ -23,7 +25,9 @@
     flex-direction: column;
     gap: 0.75rem;
 } .btn-grp > button {
-    padding: 0.5rem;
+    padding: 0.3rem 0.1rem;
+} .btn-grp > label {
+    font-size: 1.45rem;
 }
 
 /* Start, clear buttons */
@@ -31,7 +35,7 @@
     display: flex;
     gap: 2rem;
 } .timer-ctrl > button {
-    padding: 0.5rem;
+    padding: 0.25rem 0.5rem;
 }
 
 /* Start-Pause button */
