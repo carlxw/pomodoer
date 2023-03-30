@@ -15,6 +15,10 @@ html {
     overflow: hidden;
 }
 
+button {
+    font-family: 'Rubik', sans-serif;
+}
+
 /* ============================================================== */
 
 .app-container {

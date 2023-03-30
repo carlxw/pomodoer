@@ -35,10 +35,11 @@
     display: flex;
     gap: 2rem;
 } .timer-ctrl > button {
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
 }
 
 /* Start-Pause button */
 #timer-start-pause {
-    width: 6rem;
+    width: 5rem;
 }

@@ -1,18 +1,16 @@
 const express = require("express")
 // const request = require("request");
 const dotenv = require("dotenv");
-
-const port = 8000
-
-global.access_token = ""
-
-dotenv.config()
-let app = express();
-
 const config = require("../src/config.json");
 
-let spotify_client_id = "a4f3f6ce94e146d4aa6416ef2e859ea1"
-let spotify_client_secret = "e26d6398972a4bf0930f1c05907ce965"
+const port = 8000
+global.access_token = ""
+dotenv.config()
+
+let app = express();
+
+let spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
+let spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 let spotify_redirect_uri = config.redirect_url;
 
 let generateRandomString = function (length) {
@@ -40,7 +38,7 @@ app.get("/auth/login", (req, res) => {
 	})
 
 	res.redirect("https://accounts.spotify.com/authorize/?" + auth_query_parameters.toString());
-})
+});
 
 app.get("/auth/callback", async (req, res) => {
 	let authOptions = {
@@ -78,14 +76,12 @@ app.get("/auth/callback", async (req, res) => {
 
 		res.redirect("/");
 	}
-})
+});
 
 app.get("/auth/token", (req, res) => {
   	res.json({ access_token: access_token})
-})
-
-/* ========== PLAYLIST ========== */
+});
 
 app.listen(port, () => {
   	console.log(`Listening at http://localhost:${port}`)
-})
+});
