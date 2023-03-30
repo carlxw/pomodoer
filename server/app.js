@@ -83,5 +83,6 @@ app.get("/auth/token", (req, res) => {
 });
 
 app.listen(port, () => {
-  	console.log(`Listening at http://localhost:${port}`);
+  	if (!process.env.PORT) console.log(`Listening at http://localhost:${port}`);
+	else console.log(`Listening at port ${process.env.PORT}`);
 });
