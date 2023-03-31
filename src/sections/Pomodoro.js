@@ -43,12 +43,16 @@ const Pomodoro = () => {
     // Alert the user that the timer is up 
     useEffect(() => {
         if (time <= 0 && timerActive) {
-            timerOff();
             if (enableFS) document.exitFullscreen();
+
+            timerOff();
             let sound = new Howl({
                 src: mp3
             });
             sound.play();
+
+            setTimerText("Start");
+
             setTimeout(() => {
                 alert("Timer");
             }, 500);

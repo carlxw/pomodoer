@@ -18,7 +18,6 @@ const Countdown = ({ timeObj, studyObj }) => {
         if (timeObj.time <= 0) {
             clearTimeout(cd);
             timeObj.setTime(0);
-
             // Study sesion complete; increment counter
             if (studying) {
                 studyOff();
