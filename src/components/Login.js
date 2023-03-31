@@ -1,5 +1,5 @@
 import React from "react";
-
+import config from "../config.json";
 import image from "../resources/spotify-logo.png";
 
 function Login() {
@@ -15,13 +15,16 @@ function Login() {
                     your Spotify music directly here!
                 </p>
 
-                {/* <a id="spotify-login" href="/auth/login">
-                    Login with Spotify 
-                </a> */}
-                
-                <a id="spotify-login" href="https://pomodoro-node-backend.onrender.com/auth/login">
-                    Login with Spotify 
-                </a>
+                { 
+                    config.dev_mode ?
+                    <a id="spotify-login" href="/auth/login">
+                        Login with Spotify 
+                    </a>
+                    :
+                    <a id="spotify-login" href="https://pomodoro-node-backend.onrender.com/auth/login">
+                        Login with Spotify 
+                    </a> 
+                }
             </div>
         </div>
     );

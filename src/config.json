@@ -1,5 +1,6 @@
 {
     "enable_fullscreen": false,
+    "dev_mode": true,
 
     "WEBPAGE_NAME ======================": null,
     "webpage_name": "Pomodoro Timer",
@@ -36,5 +37,5 @@
         "https://steamuserimages-a.akamaihd.net/ugc/1823390356035360069/93FA03F345B4A9D0399C553092CC56F65DB09C80/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
     ],
 
-    "redirect_url": "https://carlxw.github.io/pomodoro-website/auth/callback"
+    "redirect_url": "http://localhost:3000/auth/callback"
 }
