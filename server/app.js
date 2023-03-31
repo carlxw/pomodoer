@@ -1,5 +1,5 @@
 const express = require("express");
-const request = require("request");
+// const request = require("request");
 const dotenv = require("dotenv");
 const config = require("../src/config.json");
 
@@ -50,30 +50,30 @@ app.get("/auth/callback", async (req, res) => {
 		},
 		headers: {
 			"Authorization": "Basic " + (Buffer.from(spotify_client_id + ":" + spotify_client_secret).toString("base64")),
-			"Content-Type" : "application/x-www-form-urlencoded"
+			// "Content-Type" : "application/x-www-form-urlencoded"
 		},
 		json: true
 	};
 
-	request.post(authOptions.url, function(error, response, body) {
-		if (!error && response.statusCode === 200) {
-			access_token = body.access_token;
-			res.redirect("/");
-		}
-	});
+	// request.post(authOptions.url, function(error, response, body) {
+	// 	if (!error && response.statusCode === 200) {
+	// 		access_token = body.access_token;
+	// 		res.redirect("/");
+	// 	}
+	// });
 
-	// let response = await fetch(authOptions.url, {
-	// 	method: "POST",
-	// 	headers: authOptions.headers,
-	// 	body: new URLSearchParams(authOptions.form)
-	// })
+	let response = await fetch(authOptions.url, {
+		method: "POST",
+		headers: authOptions.headers,
+		body: new URLSearchParams(authOptions.form)
+	})
 
-	// if (response.status === 200) {
-	// 	const data = await response.json();
-	// 	access_token = data.access_token;
+	if (response.status === 200) {
+		const data = await response.json();
+		access_token = data.access_token;
 
-	// 	res.redirect("/");
-	// }
+		res.redirect("/");
+	}
 });
 
 app.get("/auth/token", (req, res) => {
