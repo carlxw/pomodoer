@@ -11,7 +11,7 @@ let app = express();
 
 let spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
 let spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
-let spotify_redirect_uri = config.redirect_url;
+let spotify_redirect_uri = "http://localhost:3000/auth/callback";
 
 let generateRandomString = function (length) {
 	let text = "";
