@@ -37,7 +37,7 @@ function App() {
                 <div className="app-wrapper-left">
                     <Todo />
                 </div>
-                <div className="app-wrapper-right" style={ !token ? {} : {backgroundImage: `url(${config.images[Math.floor(Math.random()*config.images.length)]})` }}>
+                <div className="app-wrapper-right" style={ !token ? {} : { backgroundImage: `url(${config.images[Math.floor(Math.random()*config.images.length)]})` }}>
                     <Pomodoro />
                     <Music token={ token } />
                 </div>

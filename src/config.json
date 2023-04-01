@@ -1,9 +1,9 @@
 {
     "enable_fullscreen": false,
-    "dev_mode": true,
-    "gh_pages": true,
-    "redirect_url": "http://localhost:3000/auth/callback",
-
+    "gh_pages": false,
+    "redirect_url": "http://carlxw.github.io/pomodoro-timer/auth/callback",
+    "redirect_url1": "http://localhost:3000/auth/callback",
+    
     "WEBPAGE_NAME ======================": null,
     "webpage_name": "Pomodoro Timer",
     "sdk_player_name": "Pomodoro Timer",
