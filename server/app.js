@@ -83,7 +83,7 @@ app.get("/auth/callback", async (req, res) => {
 		access_token = response.data.access_token;
 
 		console.log("Redirecting to home...");
-		res.redirect("/");
+		res.redirect(config.dev ? "/" : config.homepage_url);
 	}
 });
 

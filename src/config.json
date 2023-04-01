@@ -3,6 +3,7 @@
     "gh_pages": false,
     "redirect_url_online": "https://pomodoro-node-backend.onrender.com/auth/callback",
     "redirect_url_local": "http://localhost:3000/auth/callback",
+    "homepage_url": "https://carlxw.github.io/pomodoro-website/",
     "dev": false,
     
     "WEBPAGE_NAME ======================": null,
