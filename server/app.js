@@ -58,7 +58,7 @@ app.get("/auth/callback", async (req, res) => {
 		json: true
 	};
 
-	// Rest in peace request ====================================================
+	/* Rest in peace request ==================================================== */
 	// request.post(authOptions.url, function(error, response, body) {
 	// 	if (!error && response.statusCode === 200) {
 	// 		access_token = body.access_token;
@@ -66,24 +66,21 @@ app.get("/auth/callback", async (req, res) => {
 	// 	}
 	// });
 
-	// Now you're telling me that fetch() isn't natively in NodeJS??? ===========
+	/* Now you're telling me that fetch() isn't natively in NodeJS??? =========== */
 	// let response = await fetch(authOptions.url, {
 	// 	method: "POST",
 	// 	headers: authOptions.headers,
 	// 	body: new URLSearchParams(authOptions.form)
 	// })
 
-
-	let response = await axios({
-		method: "post",
-		url: authOptions.url,
-		headers: authOptions.headers,
-		data: new URLSearchParams(authOptions.form)
-	});
+	let response = await axios.post(authOptions.url, authOptions.form, { headers: authOptions.headers });
 
 	if (response.status === 200) {
-		const data = await response.json();
-		access_token = data.access_token;
+		/* Fetch implementation */
+		// const data = await response.json();
+		// access_token = data.access_token;
+
+		access_token = response.data.access_token;
 
 		console.log("Redirecting to home...");
 		res.redirect("/");
