@@ -1,7 +1,7 @@
 {
   "name": "pomodoro-timer",
   "version": "0.1.0",
-  "homepage": "https://carlxw.github.io/pomodoro-website",
+  "homepage": "https://carlxw.github.io/#/",
   "private": true,
   "dependencies": {
     "gh-pages": "^5.0.0",

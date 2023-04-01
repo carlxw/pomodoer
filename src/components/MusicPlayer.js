@@ -37,7 +37,7 @@ const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive
 
                                 <button id="play-pause" className="btn-spotify" onClick={() => { player.togglePlay() }} >
                                     <IconContext.Provider value={{ size: "2rem", verticalAlign: "middle" }}>
-                                        { is_paused ? <MdPlayArrow className="react-icons"/> : <MdPause className="react-icons"/> }
+                                        { is_paused ? <MdPlayArrow className="react-icons" /> : <MdPause className="react-icons" /> }
                                     </IconContext.Provider>
                                 </button>
 

@@ -4,7 +4,7 @@ import image from "../resources/spotify-logo.png";
 function Login() {
     return (
         <div className="login">
-            <img src={ image }/>
+            <img src={ image } />
 
             <div className="spotify-info">
                 <h1 id="player-name">Spotify Player</h1>

@@ -39,7 +39,7 @@ function App() {
                 </div>
                 <div className="app-wrapper-right" style={ !token ? {} : {backgroundImage: `url(${config.images[Math.floor(Math.random()*config.images.length)]})` }}>
                     <Pomodoro />
-                    <Music token={ token }/>
+                    <Music token={ token } />
                 </div>
             </div>
         </div>
