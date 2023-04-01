@@ -37,6 +37,7 @@ app.get("/auth/login", (req, res) => {
 		state: state
 	})
 
+	console.log("Redirecting to Spotify...");
 	res.redirect("https://accounts.spotify.com/authorize/?" + auth_query_parameters.toString());
 });
 
@@ -72,6 +73,7 @@ app.get("/auth/callback", async (req, res) => {
 		const data = await response.json();
 		access_token = data.access_token;
 
+		console.log("Redirecting to home...");
 		res.redirect("/");
 	}
 });
