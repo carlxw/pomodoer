@@ -5,7 +5,7 @@ const Music = ({ token }) => {
   	return (
 		<>
 			<div className="music">
-				{ (token === "") ? <Login /> : <WebPlayback token={ token } /> }
+				{ (token === "") ? <Login/> : <WebPlayback token={ token }/> }
 			</div>
 		</>
   	);
