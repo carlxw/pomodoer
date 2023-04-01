@@ -2,7 +2,7 @@ const express = require("express");
 // const request = require("request");
 const dotenv = require("dotenv");
 const config = require("../src/config.json");
-const fetch = require("node-fetch")
+const axios = require("axios");
 
 const port = process.env.PORT || 8000;
 global.access_token = "";
@@ -45,18 +45,20 @@ app.get("/auth/login", (req, res) => {
 app.get("/auth/callback", async (req, res) => {
 	let authOptions = {
 		url: "https://accounts.spotify.com/api/token",
-		form: {
+		form: { 
+			// "Data"
 			code: req.query.code,
 			redirect_uri: spotify_redirect_uri,
 			grant_type: "authorization_code"
 		},
 		headers: {
 			"Authorization": "Basic " + (Buffer.from(spotify_client_id + ":" + spotify_client_secret).toString("base64")),
-			// "Content-Type" : "application/x-www-form-urlencoded"
+			"Content-Type" : "application/x-www-form-urlencoded"
 		},
 		json: true
 	};
 
+	// Rest in peace request ====================================================
 	// request.post(authOptions.url, function(error, response, body) {
 	// 	if (!error && response.statusCode === 200) {
 	// 		access_token = body.access_token;
@@ -64,11 +66,20 @@ app.get("/auth/callback", async (req, res) => {
 	// 	}
 	// });
 
-	let response = await fetch(authOptions.url, {
-		method: "POST",
+	// Now you're telling me that fetch() isn't natively in NodeJS??? ===========
+	// let response = await fetch(authOptions.url, {
+	// 	method: "POST",
+	// 	headers: authOptions.headers,
+	// 	body: new URLSearchParams(authOptions.form)
+	// })
+
+
+	let response = await axios({
+		method: "post",
+		url: authOptions.url,
 		headers: authOptions.headers,
-		body: new URLSearchParams(authOptions.form)
-	})
+		data: new URLSearchParams(authOptions.form)
+	});
 
 	if (response.status === 200) {
 		const data = await response.json();
