@@ -1,5 +1,6 @@
 import React from "react";
 import image from "../resources/spotify-logo.png";
+import config from "../config.json";
 
 function Login() {
     return (
@@ -14,7 +15,9 @@ function Login() {
                     your Spotify music directly here!
                 </p>
 
-                <a id="spotify-login" href="/auth/login">
+                <a id="spotify-login" href={
+                    config.dev ? "/auth/login" : "https://pomodoro-node-backend.onrender.com/auth/login"
+                }>
                     Login with Spotify 
                 </a>
             </div>

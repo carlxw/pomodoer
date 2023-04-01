@@ -1,8 +1,9 @@
 {
     "enable_fullscreen": false,
     "gh_pages": false,
-    "redirect_url": "http://carlxw.github.io/pomodoro-timer/auth/callback",
-    "redirect_url1": "http://localhost:3000/auth/callback",
+    "redirect_url_online": "https://pomodoro-node-backend.onrender.com/auth/callback",
+    "redirect_url_local": "http://localhost:3000/auth/callback",
+    "dev": false,
     
     "WEBPAGE_NAME ======================": null,
     "webpage_name": "Pomodoro Timer",
