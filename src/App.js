@@ -24,7 +24,7 @@ function App() {
     const [token, setToken] = useState("");
 	useEffect(() => {
 		async function getToken() {
-			const response = await fetch("/auth/token");
+			const response = await fetch(`${config.dev ? "" : config.server_url}/auth/token`);
 			const json = await response.json();
 			setToken(json.access_token);
 		}

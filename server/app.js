@@ -1,18 +1,19 @@
 const express = require("express");
-// const request = require("request");
 const dotenv = require("dotenv");
 const config = require("../src/config.json");
 const axios = require("axios");
+const cors = require("cors");
 
 const port = process.env.PORT || 8000;
 global.access_token = "";
 dotenv.config();
 
 let app = express();
+app.use(cors());
 
 let spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
 let spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
-let spotify_redirect_uri = config.dev ? config.redirect_url_local : config.redirect_url_online;
+let spotify_redirect_uri = `${config.dev ? "" : config.server_url}/auth/callback`;
 
 let generateRandomString = function (length) {
 	let text = "";

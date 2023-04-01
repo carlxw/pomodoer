@@ -1,8 +1,7 @@
 {
     "enable_fullscreen": false,
     "gh_pages": false,
-    "redirect_url_online": "https://pomodoro-node-backend.onrender.com/auth/callback",
-    "redirect_url_local": "http://localhost:3000/auth/callback",
+    "server_url": "https://pomodoro-node-backend.onrender.com",
     "homepage_url": "https://carlxw.github.io/pomodoro-website/",
     "dev": false,
     
