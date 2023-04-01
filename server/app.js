@@ -2,6 +2,7 @@ const express = require("express");
 // const request = require("request");
 const dotenv = require("dotenv");
 const config = require("../src/config.json");
+const fetch = require("node-fetch")
 
 const port = process.env.PORT || 8000;
 global.access_token = "";
