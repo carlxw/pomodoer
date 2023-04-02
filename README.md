@@ -11,6 +11,7 @@ This is a personal project that aims to bolster productivity. The idea is to cre
 * Spotify music player controller capable of play/pausing, track control, and volume control
 * `config.json` for easy maintenance 
 * Random wallpapers when a user is logged into Spotify (I do not own these wallpapers used)
+* Simple CSS animations on webpage load
 
 ## Things I Learned While Making This Project
 * Connecting a frontend and a backend is harder than it seems 
