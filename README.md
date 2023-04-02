@@ -30,3 +30,7 @@ This is a personal project that aims to bolster productivity. The idea is to cre
 * Implement subtasks into the list
 * Design a focus mode; i.e., close all tabs to prevent a user from being distracted
 * Improve timer countdown logic (i.e., see what happens if you repeatedly spam the start-pause button...)
+
+## Attributions
+The webpage icon is a modified SVG obtained below:
+By Vincent Le Moign, CC BY 4.0, https://commons.wikimedia.org/w/index.php?curid=68651551
