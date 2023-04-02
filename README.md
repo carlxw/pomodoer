@@ -28,3 +28,4 @@ This is a personal project that aims to bolster productivity. The idea is to cre
 * Allow user to configure the webpage (i.e., timer durations, custom backgrounds, etc.)
 * Implement subtasks into the list
 * Design a focus mode; i.e., close all tabs to prevent a user from being distracted
+* Improve timer countdown logic (i.e., see what happens if you repeatedly spam the start-pause button...)
