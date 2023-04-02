@@ -39,6 +39,8 @@ input[type="checkbox"]:checked + label {
     gap: 1rem;
 } .task-checkbox, .task-label {
     margin-left: 2rem;
+} .task-label {
+    cursor: pointer;
 }
 
 /* Style buttons */
