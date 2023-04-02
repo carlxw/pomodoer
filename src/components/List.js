@@ -80,6 +80,22 @@ const List = ({ title, items }) => {
         }
     }
 
+    // Edit task name
+    const editTask = (e) => {
+        // Find the item in the to-do array
+        const idx = tasks.findIndex(x => x.taskName === e.target.innerText);
+
+        // Prompt user for edit
+        let newtask = prompt("Edit task name:", e.target.innerText);
+
+        // Process
+        if (newtask === null || newtask === "") return;
+        else {
+            tasks[idx].taskName = newtask;
+            updateTasks([...tasks]);
+        }
+    }
+
     return (
         <div className="list">
             <h1 className="list-header">{ title }</h1>
@@ -96,10 +112,10 @@ const List = ({ title, items }) => {
                             onChange={ handleCheck }
                             style={ x.isST ? {marginLeft: "50px"} : null }
                         />
-                        <label className="task-label">{ x.taskName }</label>
-
+                        <label className="task-label" onClick={ editTask }>{ x.taskName }</label>
                     </div>
                 ))}
+
                 {tasksDone.map((x) => (
                     <div key={ x.taskName }>
                         <input 
