@@ -9,6 +9,7 @@ This is a personal project that aims to bolster productivity. The idea is to cre
 * Functional timer with noise notification on timer complete
 * Spotify music player controller capable of play/pausing, track control, and volume control
 * `config.json` for easy maintenance 
+* Random wallpapers when a user is logged into Spotify (I do not own these wallpapers used)
 
 ## Things I Learned While Making This Project
 * Connecting a frontend and a backend is harder than it seems 
@@ -21,7 +22,7 @@ This is a personal project that aims to bolster productivity. The idea is to cre
 * Don't use outdated or deprecated packages
 
 ## Future Ideas
-* Further enhance webpage responsiveness with media queries so that user can modify viewport sizes
+* Further enhance webpage responsiveness with media queries so that user can modify viewport sizes, aka do better with CSSing
 * Use an alternative of `localStorage` to save a user's tasks so that they can come back to it next time
 * Allow user to configure the webpage (i.e., timer durations, custom backgrounds, etc.)
 * Implement subtasks into the list
