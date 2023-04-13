@@ -30,6 +30,8 @@ This is a personal project that aims to bolster productivity. The idea is to cre
 * Implement subtasks into the list
 * Design a focus mode; i.e., close all tabs to prevent a user from being distracted
 * Improve timer countdown logic (i.e., see what happens if you repeatedly spam the start-pause button...)
+* Create an option to just stream Lofi Girl radio
+* Optimize experience for iPad users
 
 ## Attributions
 The webpage icon is a modified SVG obtained below:
