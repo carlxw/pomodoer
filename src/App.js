@@ -22,14 +22,25 @@ import React, { useState, useEffect } from "react";
 function App() {
     // Spotify Login
     const [token, setToken] = useState("");
+
 	useEffect(() => {
 		async function getToken() {
-			const response = await fetch(`${config.dev ? "" : config.server_url}/auth/token`);
-			const json = await response.json();
+			let response = await fetch(`${config.dev ? "" : config.server_url}/auth/token`);
+			let json = await response.json();
 			setToken(json.access_token);
+
+            
 		}
 		getToken();
   	}, []);
+
+    // Prepare for refresh if token is received
+    token && setInterval(async () => {
+        await fetch(`${config.dev ? "" : config.server_url}/auth/refresh_token`);
+        let response = await fetch(`${config.dev ? "" : config.server_url}/auth/token`);
+        let json = await response.json();
+        setToken(json.access_token)
+    }, 3600000);
 
     return (
         <div className="app">
