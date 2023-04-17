@@ -6,7 +6,6 @@ const cors = require("cors");
 
 const port = process.env.PORT || 8000;
 global.access_token = "";
-global.refresh_token = "";
 dotenv.config();
 
 let app = express();
@@ -83,39 +82,15 @@ app.get("/auth/callback", async (req, res) => {
 		// access_token = data.access_token;
 
 		access_token = response.data.access_token;
-		refresh_token = response.data.refresh_token;
 
 		console.log("Redirecting to home...");
 		res.redirect(config.dev ? "/" : config.homepage_url);
 	}
 });
 
-app.get('/refresh_token', async (req, res) => {
-	let authOptions = {
-		url: 'https://accounts.spotify.com/api/token',
-		headers: { 'Authorization': 'Basic ' + (new Buffer.from(client_id + ':' + client_secret).toString('base64')) },
-		form: {
-			grant_type: 'refresh_token',
-			refresh_token: refresh_token
-		},
-		json: true
-	};
-
-	let response = await axios.post(authOptions.url, authOptions.form, { headers: authOptions.headers });
-
-	if (response.status === 200) {
-		access_token = response.data.access_token
-		refresh_token = response.data.refresh_token
-	}
-});
-
 app.get("/auth/token", (req, res) => {
-	res.json({ access_token: access_token });
+  	res.json({ access_token: access_token });
 });
-
-// app.get("/auth/refresh_token", (req, res) => {
-//   res.json({ refresh_token: refresh_token });
-// });
 
 app.listen(port, () => {
   	if (!process.env.PORT) console.log(`Listening at http://localhost:${port}`);
