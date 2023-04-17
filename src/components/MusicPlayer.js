@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IconContext } from "react-icons";
 import { MdPause, MdPlayArrow, MdVolumeUp } from "react-icons/md";
+import config from "../config.json";
 
 const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive }) => {
-    const [volume, setVolume] = useState(25);
+    const [volume, setVolume] = useState(config.default_volume);
 
     const handleVolumeChange = (e) => {
         player.setVolume(e.target.value/100)
@@ -16,6 +17,11 @@ const MusicPlayer = ({ player, current_track, is_paused, createPlayer, setActive
         setTimeout(() => setActive(false), 500); 
         createPlayer();
     }
+
+    // Whenever page refreshes, refresh the player
+    // useEffect(() => {
+    //     player.connect();
+    // });
 
     return(
         <div className="spotify-container">

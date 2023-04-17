@@ -5,6 +5,7 @@ const axios = require("axios");
 const cors = require("cors");
 
 const port = process.env.PORT || 8000;
+global.response_data = "";
 global.access_token = "";
 global.refresh_token = "";
 dotenv.config();
@@ -14,7 +15,7 @@ app.use(cors());
 
 let spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
 let spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
-let spotify_redirect_uri = `${config.dev ? "" : config.server_url}/auth/callback`;
+let spotify_redirect_uri = `${config.dev ? "http://localhost:3000" : config.server_url}/auth/callback`;
 
 let generateRandomString = function (length) {
 	let text = "";
@@ -27,6 +28,10 @@ let generateRandomString = function (length) {
 };
 
 /* ========== SPOTIFY AUTH ========== */
+
+app.get("/", (req, res) => {
+	if (config.dev) res.json({ "response_data": response_data });
+});
 
 app.get("/auth/login", (req, res) => {
 	let scope = "streaming \ user-read-email \ user-read-private";
@@ -60,40 +65,33 @@ app.get("/auth/callback", async (req, res) => {
 		json: true
 	};
 
-	/* Rest in peace request ==================================================== */
-	// request.post(authOptions.url, function(error, response, body) {
-	// 	if (!error && response.statusCode === 200) {
-	// 		access_token = body.access_token;
-	// 		res.redirect("/");
-	// 	}
-	// });
-
-	/* Now you're telling me that fetch() isn't natively in NodeJS??? =========== */
-	// let response = await fetch(authOptions.url, {
-	// 	method: "POST",
-	// 	headers: authOptions.headers,
-	// 	body: new URLSearchParams(authOptions.form)
-	// })
-
 	let response = await axios.post(authOptions.url, authOptions.form, { headers: authOptions.headers });
 
 	if (response.status === 200) {
-		/* Fetch implementation */
-		// const data = await response.json();
-		// access_token = data.access_token;
-
 		access_token = response.data.access_token;
 		refresh_token = response.data.refresh_token;
+		response_data = response.data;
 
 		console.log("Redirecting to home...");
 		res.redirect(config.dev ? "/" : config.homepage_url);
+
+		// Destroy access token when it expires
+		var today = new Date();
+		var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+		console.log(`Token created at ${time}`);
 	}
 });
 
 app.get('/refresh_token', async (req, res) => {
+	console.log("Refreshing token...");
+	
+	let refresh_token = req.query.refresh_token;
 	let authOptions = {
 		url: 'https://accounts.spotify.com/api/token',
-		headers: { 'Authorization': 'Basic ' + (new Buffer.from(client_id + ':' + client_secret).toString('base64')) },
+		headers: {
+			"Authorization": "Basic " + (Buffer.from(spotify_client_id + ":" + spotify_client_secret).toString("base64")),
+			"Content-Type" : "application/x-www-form-urlencoded"
+		},
 		form: {
 			grant_type: 'refresh_token',
 			refresh_token: refresh_token
@@ -101,11 +99,15 @@ app.get('/refresh_token', async (req, res) => {
 		json: true
 	};
 
-	let response = await axios.post(authOptions.url, authOptions.form, { headers: authOptions.headers });
+	const response = await axios.post(authOptions.url, authOptions.form, { headers: authOptions.headers });
 
 	if (response.status === 200) {
-		access_token = response.data.access_token
-		refresh_token = response.data.refresh_token
+		console.log(`Changing token ${access_token} to ${response.data.access_token}`);
+		
+		access_token = response.data.access_token;
+
+		res.send({ "access_token": access_token });
+		console.log("OAuth refresh complete");
 	}
 });
 
@@ -113,9 +115,9 @@ app.get("/auth/token", (req, res) => {
 	res.json({ access_token: access_token });
 });
 
-// app.get("/auth/refresh_token", (req, res) => {
-//   res.json({ refresh_token: refresh_token });
-// });
+app.get("/auth/refresh_token", (req, res) => {
+  	res.json({ refresh_token: refresh_token });
+});
 
 app.listen(port, () => {
   	if (!process.env.PORT) console.log(`Listening at http://localhost:${port}`);

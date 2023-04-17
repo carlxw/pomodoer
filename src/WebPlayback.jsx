@@ -18,7 +18,7 @@ const track = {
     ]
 }
 
-const WebPlayback = ({ token }) => {
+const WebPlayback = ({ token, setToken }) => {
     const [is_paused, setPaused] = useState(false);
     const [is_active, setActive] = useState(false);
     const [player, setPlayer] = useState(undefined);
@@ -34,7 +34,10 @@ const WebPlayback = ({ token }) => {
         window.onSpotifyWebPlaybackSDKReady = () => {
             const player = new window.Spotify.Player({
                 name: config.sdk_player_name,
-                getOAuthToken: callback => { callback(token); },
+                getOAuthToken: (callback) => { 
+                    console.log("Token prob expired");
+                    callback(token);
+                },
                 volume: 0.25
             });
             
