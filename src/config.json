@@ -3,9 +3,7 @@
     "gh_pages": false,
     "server_url": "https://pomodoro-node-backend.onrender.com",
     "homepage_url": "https://carlxw.github.io/pomodoer/",
-    "dev": true,
-    "token_expiry": 3600,
-    "default_volume": 25,
+    "dev": false,
     
     "WEBPAGE_NAME ======================": null,
     "webpage_name": "Pomodoer",

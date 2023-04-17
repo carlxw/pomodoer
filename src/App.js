@@ -27,28 +27,20 @@ function App() {
 		async function getToken() {
 			let response = await fetch(`${config.dev ? "" : config.server_url}/auth/token`);
 			let json = await response.json();
+			setToken(json.access_token);
+
             
-            if (json.access_token === "") return;
-            setToken(json.access_token);
-
-            // Interval will run if token is not empty string
-            setTimeout(async () => {
-                console.log("Refreshing token on React");
-
-                // Get the refresh token
-                let response_refresh_token = await fetch(`${config.dev ? "" : config.server_url}/auth/refresh_token`);
-                let json_refresh_token = await response_refresh_token.json();
-
-                // Send refresh token
-                let response = await fetch(`${config.dev ? "http://localhost:8000" : config.server_url}/refresh_token?refresh_token=${json_refresh_token.refresh_token}`);
-                let json = await response.json();
-                setToken(json.access_token);
-
-                console.log("Token refreshed");
-            }, 10000);
 		}
 		getToken();
   	}, []);
+
+    // Prepare for refresh if token is received
+    token && setInterval(async () => {
+        await fetch(`${config.dev ? "" : config.server_url}/auth/refresh_token`);
+        let response = await fetch(`${config.dev ? "" : config.server_url}/auth/token`);
+        let json = await response.json();
+        setToken(json.access_token)
+    }, 3600000);
 
     return (
         <div className="app">
@@ -58,7 +50,7 @@ function App() {
                 </div>
                 <div className="app-wrapper-right" style={ !token ? {} : { backgroundImage: `url(${config.images[Math.floor(Math.random()*config.images.length)]})` }}>
                     <Pomodoro />
-                    <Music token={ token } setToken={ setToken } />
+                    <Music token={ token } />
                 </div>
             </div>
         </div>

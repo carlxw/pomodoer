@@ -1,11 +1,11 @@
 import WebPlayback from "../WebPlayback"
 import Login from "../components/Login"
 
-const Music = ({ token, setToken }) => {
+const Music = ({ token }) => {
   	return (
 		<>
 			<div className="music">
-				{ (token === "") ? <Login /> : <WebPlayback token={ token } setToken={ setToken } /> }
+				{ (token === "") ? <Login /> : <WebPlayback token={ token } /> }
 			</div>
 		</>
   	);
