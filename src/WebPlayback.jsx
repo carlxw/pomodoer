@@ -58,6 +58,10 @@ const WebPlayback = ({ token, setToken }) => {
                             token = res.data.access_token;
                             setToken(res.data.access_token);
                             callback(res.data.access_token);
+
+                            player.connect().then(success => {
+                                if (success) console.log("Player connected via Refresh Token!");
+                            });
                         })
                         .catch((err) => console.log(err));
                     })
@@ -85,12 +89,16 @@ const WebPlayback = ({ token, setToken }) => {
                     setPaused(state.paused);
 
                     player.getCurrentState().then(state => { 
+                        console.log(player);
+                        console.log(state);
                         (state.duration === 0) ? setActive(false) : setActive(true) 
                     });
                 }
             }));
 
-            player.connect();
+            player.connect().then(success => {
+                if (success) console.log("Web Player connected to Spotify on first run!");
+            });
         }
     };
 
