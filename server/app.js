@@ -30,7 +30,7 @@ let generateRandomString = function (length) {
 /* ========== SPOTIFY AUTH ========== */
 
 app.get("/", (req, res) => {
-	res.json({ "data": response_data });
+	if (config.dev) res.json({ data: response_data, refresh_token: refresh_token });
 });
 
 app.get("/auth/login", (req, res) => {
@@ -76,14 +76,13 @@ app.get("/auth/callback", async (req, res) => {
 		res.redirect(config.dev ? "/" : config.homepage_url);
 
 		// Destroy access token when it expires
-		var today = new Date();
-		var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+		let today = new Date();
+		let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 		console.log(`Token created at ${time}`);
 	}
 });
 
-app.get('/refresh_token' = async (req, res) => {
-	let refresh_token = req.query.refresh_token;
+app.get("/refresh_token", async (req, res) => {
 	let authOptions = {
 		url: 'https://accounts.spotify.com/api/token',
 		headers: {
@@ -111,10 +110,6 @@ app.get('/refresh_token' = async (req, res) => {
 
 app.get("/auth/token", (req, res) => {
   	res.json({ access_token: access_token });
-});
-
-app.get("/auth/refresh_token", (req, res) => {
-	res.json({ refresh_token: refresh_token });
 });
 
 app.listen(port, () => {
