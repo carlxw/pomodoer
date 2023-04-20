@@ -4,11 +4,33 @@ import Task from "../util/Task";
 
 const List = ({ title, items }) => {
     // Idea: Display list = incomplete tasks + complete tasks array merge
-    let [tasks, updateTasks] = useState(items.map(x => new Task(x.name, x.isST, x.isDone)));
-    let [tasksDone, updateTasksDone] = useState([]);
+    if (sessionStorage.getItem(title)) {
+        const data = JSON.parse(sessionStorage.getItem(title));
+        let tasks_temp = [];
+        let tasksDone_temp = [];
+
+        // Sort the data
+        data.forEach(x => {
+            if (x.isDone) tasksDone_temp.push(new Task(x.taskName, x.isST, x.isDone));
+            else tasks_temp.push(new Task(x.taskName, x.isST, x.isDone));
+        });
+
+        var [tasks, updateTasks] = useState(tasks_temp);
+        var [tasksDone, updateTasksDone] = useState(tasksDone_temp);
+    } else {
+        var [tasks, updateTasks] = useState(items.map(x => new Task(x.name, x.isST, x.isDone)));
+        var [tasksDone, updateTasksDone] = useState([]);
+    }
 
     // What the user types in the input box
     const [item, setItem] = useState("");
+
+    /* ============================================================================== */
+
+    // For refresh:
+    onbeforeunload = () => {
+        sessionStorage.setItem(title, JSON.stringify(tasks.concat(tasksDone)));
+    };
 
     /* ============================================================================== */
     
@@ -20,7 +42,7 @@ const List = ({ title, items }) => {
         };
 
         // Check if there is a duplicate entry
-        const dup = tasks.find((x) => (x === item));
+        const dup = tasks.find((x) => (x.taskName === item));
 
         // Truthy - There is a duplicate entry
         if (dup) {
@@ -101,7 +123,7 @@ const List = ({ title, items }) => {
             <h1 className="list-header">{ title }</h1>
             
             <div>
-                {tasks.map((x) => (
+                {tasks.map((x, idx) => (
                     <div key={ x.taskName }>
                         <input 
                             className="task-checkbox" 
@@ -116,7 +138,7 @@ const List = ({ title, items }) => {
                     </div>
                 ))}
 
-                {tasksDone.map((x) => (
+                {tasksDone.map((x, idx) => (
                     <div key={ x.taskName }>
                         <input 
                             className="task-checkbox" 
