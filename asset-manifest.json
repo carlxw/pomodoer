@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/pomodoer/static/css/main.02eee65b.css",
-    "main.js": "/pomodoer/static/js/main.4c5f27bd.js",
+    "main.css": "/pomodoer/static/css/main.7ac22b84.css",
+    "main.js": "/pomodoer/static/js/main.de864d10.js",
     "static/media/alarm.mp3": "/pomodoer/static/media/alarm.f1a8af7e24c6fe26bf71.mp3",
     "index.html": "/pomodoer/index.html",
-    "main.02eee65b.css.map": "/pomodoer/static/css/main.02eee65b.css.map",
-    "main.4c5f27bd.js.map": "/pomodoer/static/js/main.4c5f27bd.js.map"
+    "main.7ac22b84.css.map": "/pomodoer/static/css/main.7ac22b84.css.map",
+    "main.de864d10.js.map": "/pomodoer/static/js/main.de864d10.js.map"
   },
   "entrypoints": [
-    "static/css/main.02eee65b.css",
-    "static/js/main.4c5f27bd.js"
+    "static/css/main.7ac22b84.css",
+    "static/js/main.de864d10.js"
   ]
 }
