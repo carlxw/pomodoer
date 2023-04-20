@@ -29,7 +29,10 @@ function App() {
 			let json = await response.json();
 			setToken(json.access_token);
 
-            
+            setTimeout(() => {
+                alert("You have been logged out of Spotify.");
+                location.reload();
+            }, 3600*1000);
 		}
 		getToken();
   	}, []);
