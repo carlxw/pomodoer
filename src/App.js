@@ -37,14 +37,6 @@ function App() {
 		getToken();
   	}, []);
 
-    // Prepare for refresh if token is received
-    token && setInterval(async () => {
-        await fetch(`${config.dev ? "" : config.server_url}/auth/refresh_token`);
-        let response = await fetch(`${config.dev ? "" : config.server_url}/auth/token`);
-        let json = await response.json();
-        setToken(json.access_token)
-    }, 3600000);
-
     return (
         <div className="app">
             <div className="app-container">
