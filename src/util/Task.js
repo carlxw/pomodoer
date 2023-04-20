@@ -4,4 +4,8 @@ export default class Task {
         this.isST = isST;
         this.isDone = isDone;
     }
+
+    toObject() {
+        return {"name": this.taskName, "isST": this.isST, "isDone": this.isDone}
+    }
 }
