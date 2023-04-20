@@ -22,15 +22,27 @@ button {
 /* ============================================================== */
 
 .app-container {
-    height: 100vh;
-    width: 100vw;
     display: flex;
     flex-direction: row;
 }
 
+.app-wrapper-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 50vw;
+    
+    background-color: rgba(0, 0, 0, 0.75);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    margin-top: auto;
+}
+
 .music, .pomodoro {
-    width: 48vw;
-    height: 47.5vh;
+    width: 95%;
+    height: 47.5%;
     background-color: inherit;
     border-radius: 1rem;
     margin: 1rem;
@@ -47,16 +59,4 @@ button {
 .music {
     color: white;
     fill: white;
-}
-
-.app-wrapper-right {
-    height: 100vh;
-    width: 50vw;
-    
-    background-color: rgba(0, 0, 0, 0.75);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    display: flex;
-    flex-direction: column;
 }
