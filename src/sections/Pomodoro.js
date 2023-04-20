@@ -9,7 +9,7 @@ import config from "../config.json";
 
 const Pomodoro = () => {
     // Check if there is previous data
-    const prev_session = JSON.parse(sessionStorage.getItem("timer"));
+    const prev_session = JSON.parse(sessionStorage.getItem("Timer"));
 
     /* ======================================================= */
 
@@ -29,7 +29,7 @@ const Pomodoro = () => {
 
     // For refresh:
     onbeforeunload = () => {
-        sessionStorage.setItem("timer", JSON.stringify({
+        sessionStorage.setItem("Timer", JSON.stringify({
             "study_session": studyNo,
             "current_time": time
         }));
