@@ -3,34 +3,15 @@ import { arrRemove } from "../util/ArrayUtil";
 import Task from "../util/Task";
 
 const List = ({ title, items }) => {
-    // There is data from a previous session
-    if (sessionStorage.getItem(title)) {
-        const data = JSON.parse(sessionStorage.getItem(title));
-        let tasks_temp = [];
-        let tasksDone_temp = [];
-
-        data.forEach(x => {
-            if (x.isDone) tasksDone_temp.push(new Task(x.taskName, x.isST, x.isDone));
-            else tasks_temp.push(new Task(x.taskName, x.isST, x.isDone));
-        });
-
-        var [tasks, updateTasks] = useState(tasks_temp);
-        var [tasksDone, updateTasksDone] = useState(tasksDone_temp);
-    } else {
-        // Idea: Display list = incomplete tasks + complete tasks array merge
-        var [tasks, updateTasks] = useState(items.map(x => new Task(x.name, x.isST, x.isDone)));
-        var [tasksDone, updateTasksDone] = useState([]);
-    }
+    // Idea: Display list = incomplete tasks + complete tasks array merge
+    let [tasks, updateTasks] = useState(items.map(x => new Task(x.name, x.isST, x.isDone)));
+    let [tasksDone, updateTasksDone] = useState([]);
 
     // What the user types in the input box
     const [item, setItem] = useState("");
 
     /* ============================================================================== */
     
-    const save = () => {
-        sessionStorage.setItem(title, JSON.stringify(tasks.concat(tasksDone)));
-    }
-
     const addTask = () => {
         // Do nothing if the user typed nothing
         if (item === "") {
@@ -38,32 +19,32 @@ const List = ({ title, items }) => {
             return;
         };
 
+        // Check if there is a duplicate entry
+        const dup = tasks.find((x) => (x === item));
+
+        // Truthy - There is a duplicate entry
+        if (dup) {
+            alert("Duplicate entry.");
+        } 
         // Add new task to array
-        tasks.push(new Task(item, false, false));
+        else {
+            tasks.push(new Task(item, false, false));
             updateTasks(tasks);
+        }
 
         // Reset input field text
         setItem("");
-        save();
     }
 
     // Clears everything
     const clearAll = () => {
         updateTasks([]);
         updateTasksDone([]);
-        tasks = [];
-        tasksDone = [];
-        save();
     }
 
     // Remove only the tasks that are completed
     const clearDone = () => {
-        console.log(tasksDone)
-        if (tasksDone !== []) {
-            tasksDone = [];
-            updateTasksDone([])
-            save();
-        }
+        if (tasksDone === []) updateTasksDone([]);
         else alert("Nothing to remove.");
     }
     
@@ -84,7 +65,6 @@ const List = ({ title, items }) => {
 
             updateTasksDone([...tasksDone]);
             updateTasks([...tasks]);
-            save();
         }
 
         // Complete to incomplete
@@ -97,7 +77,6 @@ const List = ({ title, items }) => {
 
             updateTasks([...tasks]);
             updateTasksDone([...tasksDone]);
-            save();
         }
     }
 
@@ -114,7 +93,6 @@ const List = ({ title, items }) => {
         else {
             tasks[idx].taskName = newtask;
             updateTasks([...tasks]);
-            save();
         }
     }
 
@@ -123,8 +101,8 @@ const List = ({ title, items }) => {
             <h1 className="list-header">{ title }</h1>
             
             <div>
-                {tasks.map((x, idx) => (
-                    <div key={ idx }>
+                {tasks.map((x) => (
+                    <div key={ x.taskName }>
                         <input 
                             className="task-checkbox" 
                             defaultChecked={ false }
@@ -138,8 +116,8 @@ const List = ({ title, items }) => {
                     </div>
                 ))}
 
-                {tasksDone.map((x, idx) => (
-                    <div key={ idx }>
+                {tasksDone.map((x) => (
+                    <div key={ x.taskName }>
                         <input 
                             className="task-checkbox" 
                             defaultChecked={ true }
