@@ -8,18 +8,33 @@ import mp3 from "../resources/alarm.mp3"
 import config from "../config.json";
 
 const Pomodoro = () => {
+    // Check if there is previous data
+    const prev_session = JSON.parse(sessionStorage.getItem("timer"));
+
+    /* ======================================================= */
+
     // Enable or disable fullscreen for focus
     const enableFS = config.enable_fullscreen;
 
     // The time itself that will decrement with every second, controlled by Timer
-    const [time, setTime] = useState(0);
+    const [time, setTime] = useState(prev_session ? prev_session.current_time : 0);
 
     // Counts the number of study sessions that occured
-    const [studyNo, setStudyNo] = useState(1);
+    const [studyNo, setStudyNo] = useState(prev_session ? prev_session.study_session : 1);
 
     // The start/pause button for the timer
     const [timerText, setTimerText] = useState("Start");
     
+    /* ======================================================= */
+
+    // For refresh:
+    onbeforeunload = () => {
+        sessionStorage.setItem("timer", JSON.stringify({
+            "study_session": studyNo,
+            "current_time": time
+        }));
+    };
+
     /* ======================================================= */
 
     // Bug: Spamming start button
