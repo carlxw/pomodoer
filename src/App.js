@@ -30,8 +30,7 @@ function App() {
 			setToken(json.access_token);
 
             setTimeout(() => {
-                alert("You have been logged out of Spotify.");
-                location.reload();
+                if (confirm("You have been logged out of Spotify. Press OK to reload.")) location.reload();
             }, 3600*1000);
 		}
 		getToken();
