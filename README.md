@@ -1,5 +1,5 @@
 # pomodoer.app
-[Link To Website](https://carlxw.github.io/pomodoer.app/)
+[Link To Website](https://carlxw.github.io/pomodoer/)
 
 ## What Is It?
 This is a personal project that aims to bolster productivity. The idea is to create a space where the user does not feel the need to switch applications while studying (i.e., switching between timer app to start pomodoroing, opening music app to change playlists, and opening their todo lists). When one tabs out, the likelihood of one becoming distracted and slacking off increases significantly, hence the creation of this website.
