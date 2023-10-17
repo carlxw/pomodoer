@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/pomodoer/static/css/main.7ac22b84.css",
-    "main.js": "/pomodoer/static/js/main.5cf6c4dc.js",
+    "main.js": "/pomodoer/static/js/main.cdba9faa.js",
     "static/media/alarm.mp3": "/pomodoer/static/media/alarm.f1a8af7e24c6fe26bf71.mp3",
     "index.html": "/pomodoer/index.html",
     "main.7ac22b84.css.map": "/pomodoer/static/css/main.7ac22b84.css.map",
-    "main.5cf6c4dc.js.map": "/pomodoer/static/js/main.5cf6c4dc.js.map"
+    "main.cdba9faa.js.map": "/pomodoer/static/js/main.cdba9faa.js.map"
   },
   "entrypoints": [
     "static/css/main.7ac22b84.css",
-    "static/js/main.5cf6c4dc.js"
+    "static/js/main.cdba9faa.js"
   ]
 }
