@@ -66,7 +66,7 @@ const List = ({ title, items }) => {
 
     // Remove only the tasks that are completed
     const clearDone = () => {
-        if (tasksDone === []) updateTasksDone([]);
+        if (tasksDone.length !== 0) updateTasksDone([]);
         else alert("Nothing to remove.");
     }
     
@@ -92,7 +92,7 @@ const List = ({ title, items }) => {
         // Complete to incomplete
         else {
             // Put task to todo array
-            tasks.push(new Task(e.target.value, false, true));
+            tasks.push(new Task(e.target.value, false, false));
 
             // Remove the task from its position in the array
             tasksDone = arrRemove(tasksDone, e.target.value);
