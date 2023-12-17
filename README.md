@@ -1,6 +1,8 @@
 # [pomodoer.app](https://carlxw.github.io/pomodoer/)
 > All-in-one (Todo list, pomodoro timer, Spotify music player) web application built to combat student procrastination and bolster academic efficiency
 
+![Screenshot](./img/Pomodoer_1.png)
+
 ## Project Features
 * Notion-inspired to-do list
 * Pomodoro timer with pre-configured time presets, and counts the number of study sessions the user has undergone
